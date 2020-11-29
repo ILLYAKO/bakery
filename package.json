@@ -4,7 +4,11 @@
   "description": "bakery ecomercy",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [
     "bakery",
@@ -14,5 +18,16 @@
     "nodejs"
   ],
   "author": "Illya K.",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.2",
+    "express": "^4.17.1",
+    "materialize-css": "^1.0.0",
+    "mongoose": "^5.10.16",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
 }
