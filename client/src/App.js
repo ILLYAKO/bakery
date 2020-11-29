@@ -1,25 +1,25 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import {BrowserRouter as Router } from "react-router-dom";
 import "materialize-css";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
-import {WelcomePage} from "./Pages/WelcomePage"
 
- 
+import { useRoutes } from "./routes";
 
 const App = () => {
+  const routes = useRoutes();
   return (
-    <div>
+    <>
       <Router>
         <Navbar />
-        {/* <div className="container">{routes}</div>*/}
-        <WelcomePage />
-        
-
+        {routes}
+        {/**/}
+        {/* <Modal /> */}
+        {/**/}
         <Footer />
       </Router>
-    </div>
+    </>
   );
 };
 export default App;

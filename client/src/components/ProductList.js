@@ -5,13 +5,10 @@ import { Product } from "./Product";
 export const ProductList = () => {
   return (
     <div className="row">
-      <h2>Product List</h2>      
-        {storeProducts.map((product) => {
-          return (
-              <Product product={product} />
-          );
-        })}
-      
+      <h2>Product List</h2>
+      {storeProducts.map((product) => {
+        return <Product key={product.id} product={product} />;
+      })}
     </div>
   );
 };

@@ -4,11 +4,11 @@ import { WelcomePart } from "../components/WelcomePart";
 
 export const WelcomePage = () => {
   return (
-    <div>
+    <>
       <div className="container">
         <WelcomePart />
         <ProductList />
       </div>
-    </div>
+    </>
   );
 };

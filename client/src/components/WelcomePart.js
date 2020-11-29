@@ -14,7 +14,7 @@ export const WelcomePart = () => {
               <label htmlFor="searchField">I am looking for</label>
               <input id="searchField" type="text" />
             </form>
-          </div>
+          </div>    
         </div>
       </>
     );

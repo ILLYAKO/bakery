@@ -3,10 +3,9 @@ import React from "react";
 // import { NavLink, useHistory } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
-
 export const Navbar = () => {
   return (
-    <div>
+    <>
       <nav className="nav-extended">
         <div className="nav-wrapper">
           <div className="container">
@@ -15,31 +14,33 @@ export const Navbar = () => {
             </NavLink>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li>
-                <NavLink to="/">Login</NavLink>
+                <NavLink to="/api/auth/login">Login</NavLink>
               </li>
               <li>
-                <NavLink to="/">Register now</NavLink>
+                <NavLink to="/api/auth/register">Register now</NavLink>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="nav-wrapper">
-            
-          <NavLink to="/" className="brand-logo right">
-            Your Cart
-          </NavLink>
-          <ul id="nav-mobile" className="left hide-on-med-and-down">
-            <li>
-              <NavLink to="/">home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/">Our products</NavLink>
-            </li>
-            <li>
-              <NavLink to="/">Contact us</NavLink>
-            </li>
-          </ul>
+          <div className="container">
+            <ul id="nav-mobile" className="left hide-on-med-and-down">
+              <li>
+                <NavLink to="/">home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/">Our products</NavLink>
+              </li>
+              <li>
+                <NavLink to="/">Contact us</NavLink>
+              </li>
+            </ul>
+
+            <NavLink to="/cart" className="right brand-logo">
+              Cart
+            </NavLink>
+          </div>
         </div>
       </nav>
 
@@ -54,6 +55,6 @@ export const Navbar = () => {
             <a href="collapsible.html">JavaScript</a>
           </li>
         </ul> */}
-    </div>
+    </>
   );
 };
