@@ -20,8 +20,11 @@
   "author": "Illya K.",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "config": "^3.3.2",
     "express": "^4.17.1",
+    "express-validator": "^6.7.0",
+    "jsonwebtoken": "^8.5.1",
     "materialize-css": "^1.0.0",
     "mongoose": "^5.10.16",
     "react-router-dom": "^5.2.0"

@@ -5,7 +5,7 @@ export const Product = (props) => {
     <div className="col s12 m6">
       <div className="card">
         <div className="card-image">
-          <img src="https://raw.githubusercontent.com/ILLYAKO/bakery-repository/main/images/products/Birthday.png" />
+          <img src="https://raw.githubusercontent.com/ILLYAKO/bakery-repository/main/images/products/Birthday.png" alt="bakery" />
           <span className="card-title blue-text">{props.product.title}</span>
           {/* <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a> */}
         </div>

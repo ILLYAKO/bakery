@@ -14,10 +14,10 @@ export const Navbar = () => {
             </NavLink>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li>
-                <NavLink to="/api/auth/login">Login</NavLink>
+                <NavLink to="/login">Login</NavLink>
               </li>
               <li>
-                <NavLink to="/api/auth/register">Register now</NavLink>
+                <NavLink to="/register">Register now</NavLink>
               </li>
             </ul>
           </div>
@@ -31,6 +31,9 @@ export const Navbar = () => {
               </li>
               <li>
                 <NavLink to="/">Our products</NavLink>
+              </li>
+              <li>
+                <NavLink to="/addproduct">Add product</NavLink>
               </li>
               <li>
                 <NavLink to="/">Contact us</NavLink>

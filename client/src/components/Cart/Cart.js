@@ -1,16 +1,19 @@
 import React, { Component } from "react";
-import Title from "../Title";
-import CartColumns from "./CartColumns";
-import EmptyCart from "./EmptyCart";
-import { ProductConsumer } from "../../context";
-import CartList from "./CartList";
-import CartTotals from "./CartTotals";
+// import Title from "../Title";
+import {CartColumns} from "./CartColumns";
+// import EmptyCart from "./EmptyCart";
+// import { ProductConsumer } from "../../context";
+// import CartList from "./CartList";
+// import CartTotals from "./CartTotals";
 
-export default class Cart extends Component {
-  render() {
-    return (
-      <section>
-        <ProductConsumer>
+export const Cart = () => {
+  return (
+    <section>
+      <div>
+        <h3>Cart</h3>
+        <CartColumns />
+      </div>
+      {/* <ProductConsumer>
           {(value) => {
             const { cart } = value;
             if (cart.length > 0) {
@@ -26,8 +29,7 @@ export default class Cart extends Component {
               return <EmptyCart />;
             }
           }}
-        </ProductConsumer>
-      </section>
-    );
-  }
-}
+        </ProductConsumer> */}
+    </section>
+  );
+};
