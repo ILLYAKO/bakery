@@ -31,7 +31,6 @@ export const LoginPage = () => {
   //   try {
   //     const data = await request("/api/auth/register", "POST", { ...form });
   //     message(data.message);
-  //     console.log("Data", data);
   //   } catch (e) {}
   // };
 
@@ -40,7 +39,6 @@ export const LoginPage = () => {
       const data = await request("/api/auth/login", "POST", { ...form });
       // message(data.message);
       auth.login(data.token, data.userId);
-      console.log("Data", data);
     } catch (e) {}
   };
 

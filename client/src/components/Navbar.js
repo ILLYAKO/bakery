@@ -1,9 +1,15 @@
-// import React, { useContext } from "react";
-import React from "react";
-// import { NavLink, useHistory } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { NavLink, useHistory } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
-export const Navbar = () => {
+export const Navbar = (props) => {
+  const history = useHistory();
+  const auth = useContext(AuthContext);
+  const logoutHandler = (event) => {
+    event.preventDefault();
+    auth.logout();
+    history.push("/");
+  };
   return (
     <>
       <nav className="nav-extended">
@@ -12,14 +18,24 @@ export const Navbar = () => {
             <NavLink to="/" className="brand-logo">
               Logo
             </NavLink>
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li>
-                <NavLink to="/login">Login</NavLink>
-              </li>
-              <li>
-                <NavLink to="/register">Register now</NavLink>
-              </li>
-            </ul>
+            {props.isAuthenticated ? (
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <li>
+                  <NavLink to="/" onClick={logoutHandler}>
+                    Logout
+                  </NavLink>
+                </li>
+              </ul>
+            ) : (
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <li>
+                  <NavLink to="/login">Login</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/register">Register now</NavLink>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
 
@@ -32,12 +48,15 @@ export const Navbar = () => {
               <li>
                 <NavLink to="/">Our products</NavLink>
               </li>
-              <li>
-                <NavLink to="/addproduct">Add product</NavLink>
-              </li>
-              <li>
-                <NavLink to="/">Contact us</NavLink>
-              </li>
+              {props.isAuthenticated ? (
+                <li>
+                  <NavLink to="/addproduct">Add product</NavLink>
+                </li>
+              ) : (
+                <li>
+                  <NavLink to="/">Contact us</NavLink>
+                </li>
+              )}
             </ul>
 
             <NavLink to="/cart" className="right brand-logo">
