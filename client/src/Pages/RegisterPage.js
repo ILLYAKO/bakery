@@ -6,8 +6,6 @@ import { AuthContext } from "../context/AuthContext";
 
 export const RegisterPage = () => {
 
-
-
   const auth = useContext(AuthContext);
   const message = useMessage();
   const { loading, request, error, clearError } = useHttp();
@@ -37,48 +35,42 @@ export const RegisterPage = () => {
       message(data.message);
     } catch (e) {}
   };
-  // const loginHandler = async () => {
-  //   try {
-  //     const data = await request("/api/auth/login", "POST", { ...form });
-  //     // message(data.message);
-  //     auth.login(data.token, data.userId);
-  //   } catch (e) {}
-  // };
 
   return (
-    <div className="row">
-      <div className="col s12 m6">
-        <h2>Register Page</h2>
-        <div className="card blue darken-1">
-          <div className="card-content white-text">
-            <span className="card-title">Registration</span>
-            <div className="input-field">
-              <input
-                placeholder="Enter your email"
-                id="email"
-                type="text"
-                name="email"
-                className="yellow-input"
-                value={form.email}
-                onChange={changeHandler}
-              />
-              <label htmlFor="email">Email</label>
+    <div className="container">
+      <div className="row">
+        <div className="col s12 m8">
+          <h2>Register Page</h2>
+          <div className="card blue darken-1">
+            <div className="card-content white-text">
+              <span className="card-title">Registration</span>
+              <div className="input-field">
+                <input
+                  placeholder="Enter your email"
+                  id="email"
+                  type="text"
+                  name="email"
+                  className="yellow-input"
+                  value={form.email}
+                  onChange={changeHandler}
+                />
+                <label htmlFor="email">Email</label>
+              </div>
+              <div className="input-field">
+                <input
+                  placeholder="Enter password"
+                  id="password"
+                  type="password"
+                  name="password"
+                  className="yellow-input"
+                  value={form.password}
+                  onChange={changeHandler}
+                />
+                <label htmlFor="password">Password</label>
+              </div>
             </div>
-            <div className="input-field">
-              <input
-                placeholder="Enter password"
-                id="password"
-                type="password"
-                name="password"
-                className="yellow-input"
-                value={form.password}
-                onChange={changeHandler}
-              />
-              <label htmlFor="password">Password</label>
-            </div>
-          </div>
-          <div className="card-action">
-            {/* <button
+            <div className="card-action">
+              {/* <button
               className="btn yellow darken-4"
               style={{ marginRight: 10 }}
               onClick={loginHandler}
@@ -86,13 +78,14 @@ export const RegisterPage = () => {
             >
               Login
             </button> */}
-            <button
-              className="btn grey lighten-1 black-text"
-              onClick={registerHandler}
-              disabled={loading}
-            >
-              Register
-            </button>
+              <button
+                className="btn grey lighten-1 black-text"
+                onClick={registerHandler}
+                disabled={loading}
+              >
+                Register
+              </button>
+            </div>
           </div>
         </div>
       </div>
