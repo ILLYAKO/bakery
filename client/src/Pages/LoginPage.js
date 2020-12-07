@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
+import { useState} from "react";
+
 import { useHttp } from "../hooks/http.hook";
 // import { useMessage } from "../hooks/message.hook";
 import { AuthContext } from "../context/AuthContext";
@@ -8,7 +10,11 @@ import { AuthContext } from "../context/AuthContext";
 export const LoginPage = () => {
   const auth = useContext(AuthContext);
   // // const message = useMessage();
-  const { loading, request, error, clearError } = useHttp();
+  // const { loading, request, error, clearError } = useHttp();
+  const { request } = useHttp();
+
+
+
   const [form, setform] = useState({
     email: "",
     password: "",

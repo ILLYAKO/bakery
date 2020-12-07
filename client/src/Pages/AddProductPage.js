@@ -1,23 +1,27 @@
-import React, { useContext } from "react";
-import { useState, useEffect } from "react";
+// import React, { useContext } from "react";
+// import { useState, useEffect } from "react";
+import React from "react";
+import { useState } from "react";
 import { useHttp } from "../hooks/http.hook";
+const { v4: uuidv4 } = require("uuid");
+
 // import { useMessage } from "../hooks/message.hook";
 
 export const AddProductPage = () => {
   const [formProduct, setFormProduct] = useState({
-    id: "xxxxx",
-    title: "title",
-    img: "img",
+    // id: "",
+    title: "",
+    imgUrl: "",
     price: 0,
-    company: "GOOGLE",
-    info:
-      "Lorem ipsum dolor amet.",
+    company: "",
+    info: "",
     inCart: false,
     count: 0,
     total: 0,
   });
   // const message = useMessage();
-  const { loading, request, error, clearError } = useHttp();
+  // const { loading, request, error, clearError } = useHttp();
+  const { loading, request } = useHttp();
 
   const changeHandler = (event) => {
     setFormProduct({
@@ -25,15 +29,27 @@ export const AddProductPage = () => {
       [event.target.name]: event.target.value,
     });
   };
-  const registerHandler = async () => {
+
+  const addProductHandler = async () => {
+    const userId = uuidv4();
+    await setFormProduct({
+      ...formProduct,
+      id: userId,
+    });
     try {
-      console.log("registerHandler");
-      const data = await request("/api/auth/register", "POST", {
+      console.log(" --> addProductHandler:", formProduct);
+      const data = await request("/api/product/add", "POST", {
         ...formProduct,
+      }).then(() => {
+        console.log("addProductHandler-2");
       });
+      console.log("data: ", data);
       // message(data.message);
-    } catch (e) {}
+    } catch (e) {
+      console.log("addProductHandler-Error");
+    }
   };
+
   return (
     <div className="container">
       <div className="row">
@@ -44,21 +60,72 @@ export const AddProductPage = () => {
               <span className="card-title">Product</span>
               <div className="input-field">
                 <input
-                  placeholder="Enter your email"
-                  id="email"
+                  placeholder="Enter product title"
+                  id="title"
                   type="text"
-                  name="email"
+                  name="title"
                   className="yellow-input"
                   value={formProduct.title}
                   onChange={changeHandler}
                 />
-                <label htmlFor="email">Email</label>
+                <label htmlFor="title">Title</label>
+              </div>
+              <div className="input-field">
+                <input
+                  placeholder="Enter image url"
+                  id="imgUrl"
+                  type="text"
+                  name="imgUrl"
+                  className="yellow-input"
+                  value={formProduct.imgUrl}
+                  onChange={changeHandler}
+                />
+                <label htmlFor="imgUrl">Image Url</label>
+              </div>
+
+              <div className="input-field">
+                <input
+                  placeholder="Enter price"
+                  id="price"
+                  type="text"
+                  name="price"
+                  className="yellow-input"
+                  value={formProduct.price}
+                  onChange={changeHandler}
+                />
+                <label htmlFor="price">Price</label>
+              </div>
+
+              <div className="input-field">
+                <input
+                  placeholder="Enter product company"
+                  id="company"
+                  type="text"
+                  name="company"
+                  className="yellow-input"
+                  value={formProduct.company}
+                  onChange={changeHandler}
+                />
+                <label htmlFor="company">Company</label>
+              </div>
+
+              <div className="input-field">
+                <input
+                  placeholder="Enter info"
+                  id="info"
+                  type="text"
+                  name="info"
+                  className="yellow-input"
+                  value={formProduct.info}
+                  onChange={changeHandler}
+                />
+                <label htmlFor="info">Info</label>
               </div>
             </div>
             <div className="card-action">
               <button
                 className="btn grey lighten-1 black-text"
-                onClick={registerHandler}
+                onClick={addProductHandler}
                 disabled={loading}
               >
                 Add Product
