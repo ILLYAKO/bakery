@@ -3,9 +3,10 @@
 import React from "react";
 import { useState } from "react";
 import { useHttp } from "../hooks/http.hook";
+import { useMessage } from "../hooks/message.hook";
 const { v4: uuidv4 } = require("uuid");
 
-// import { useMessage } from "../hooks/message.hook";
+
 
 export const AddProductPage = () => {
   const [formProduct, setFormProduct] = useState({
@@ -19,7 +20,7 @@ export const AddProductPage = () => {
     count: 0,
     total: 0,
   });
-  // const message = useMessage();
+  const message = useMessage();
   // const { loading, request, error, clearError } = useHttp();
   const { loading, request } = useHttp();
 
@@ -36,15 +37,12 @@ export const AddProductPage = () => {
       ...formProduct,
       id: userId,
     });
+
     try {
       console.log(" --> addProductHandler:", formProduct);
-      const data = await request("/api/product/add", "POST", {
-        ...formProduct,
-      }).then(() => {
-        console.log("addProductHandler-2");
-      });
+      const data = await request("/api/product/add", "POST", {...formProduct})
       console.log("data: ", data);
-      // message(data.message);
+      message(data.message);
     } catch (e) {
       console.log("addProductHandler-Error");
     }

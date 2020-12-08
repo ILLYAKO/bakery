@@ -5,7 +5,6 @@ import { useMessage } from "../hooks/message.hook";
 import { AuthContext } from "../context/AuthContext";
 
 export const RegisterPage = () => {
-  
   // eslint-disable-next-line
   const auth = useContext(AuthContext);
   const message = useMessage();
@@ -26,7 +25,10 @@ export const RegisterPage = () => {
   }, []);
 
   const changeHandler = (event) => {
-    setform({ ...form, [event.target.name]: event.target.value });
+    setform({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const registerHandler = async () => {
