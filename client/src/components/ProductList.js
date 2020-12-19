@@ -10,17 +10,15 @@ export const ProductList = () => {
 
   useEffect(() => {
     const func = async () => {
-      try {      
+      try {
         const result = await request("/api/product/products", "POST", {
           products: "allProduct",
-        })
+        });
         setData(result);
-      } catch (e) {
-      }
-      
+      } catch (e) {}
     };
     func();
-  }, []);
+  }, [request]);
   return (
     <div className="row">
       <h2>Product List</h2>

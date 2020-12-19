@@ -1,5 +1,5 @@
 import React from 'react'
-import image00 from "../assets/images/image00.JPG";
+import image00 from "../assets/images/image00.jpg";
 
 export const WelcomePart = () => {
     return (
