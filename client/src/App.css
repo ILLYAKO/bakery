@@ -6,6 +6,14 @@ body {
   flex-direction: column;
 }
 
+.watermark-text {
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+    1px 1px 1px rgba(0, 0, 0, 0.5), 10px 0px 8px rgba(0, 0, 0, 0.4);
+  font-style: italic;
+  font-family: cursive;
+  text-transform: capitalize;
+}
+
 footer {
   position: absolute;
   width: 100%;
@@ -14,6 +22,5 @@ footer {
 @media screen and (min-height: 800px) {
   footer {
     position: relative;
-    
   }
 }

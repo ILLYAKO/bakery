@@ -64,7 +64,7 @@ router.post(
       });
 
       await product.save().then((result) => {
-        console.log("Pproduct was created!");
+        console.log("Product was created!");
       });
 
       res.status(201).json({ message: "Product created!" });

@@ -7,15 +7,12 @@ const { check, validationResult } = require("express-validator");
 const User = require("../models/User");
 const router = Router();
 
-// /api/auth
-//         /register
+// /api/cart
+//         /add
 router.post(
-  "/register",
+  "/add",
   [
-    check("email", "bad email").isEmail(),
-    check("password", "Password should be at list 6 symbols.").isLength({
-      min: 6,
-    }),
+    check("title").exists(),
   ],
   async (req, res) => {
     try {
@@ -24,7 +21,7 @@ router.post(
       if (!errors.isEmpty) {
         return res.status(400).json({
           errors: errors.array(),
-          message: "wrong registration data",
+          message: "wrong cart data",
         });
       }
 
@@ -50,7 +47,6 @@ router.post(
       });
 
       res.status(201).json({ message: "User created!" });
-
     } catch (e) {
       return res.status(500).json({ message: "Something wrong, try again!" });
     }
