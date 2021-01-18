@@ -1,45 +1,48 @@
 // import React, { Component } from "react";
 // import React from "react";
 import React, { useContext } from "react";
-import { ProductContext } from "../../context/ProductContext";
+import { useProduct } from "../../context/ProductContext";
 
 // import Title from "../Title";
 import { CartColumns } from "./CartColumns";
-// import EmptyCart from "./EmptyCart";
+import { CartItem } from "./CartItem";
+import EmptyCart from "./EmptyCart";
 // import { ProductConsumer } from "../../context";
-// import CartList from "./CartList";
-// import CartTotals from "./CartTotals";
+import CartList from "./CartList";
+import CartTotals from "./CartTotals";
 
 export const Cart = () => {
   // const [productContext, setProductContext] = useContext(ProductContext);
-  const prodContext = useContext(ProductContext);
-
-
-  return (
-    <section>
-      <div>
-        <h3>Cart: {prodContext.simpleText1}</h3>
-        {console.log("Context11", prodContext)}
-        <CartColumns />
-      </div>
-      <h3>Cart </h3>
-      {/* <ProductConsumer>
-          {(value) => {
-            const { cart } = value;
-            if (cart.length > 0) {
-              return (
-                <React.Fragment>
-                  <Title name="your" title="cart" />
-                  <CartColumns />
-                  <CartList value={value} />
-                  <CartTotals value={value} history={this.props.history} />
-                </React.Fragment>
-              );
-            } else {
-              return <EmptyCart />;
-            }
-          }}
-        </ProductConsumer> */}
-    </section>
+  const value = useProduct();
+  // let i = 0;
+  return value.productsInCart.length > 0 ? (
+    <>
+      <CartColumns />
+      {console.log("value.productsInCart", value.productsInCart)}
+      <CartList value={value} />
+      {
+        // productsInCart.map((product) => {
+        //   return (
+        //     <div>
+        //       <div
+        //         className="container-fluid center-align d-none d-lg-block row"
+        //         key={i++}
+        //       >
+        //         <div className="col l2 s12 ">{product.company}</div>
+        //         <div className="col l2 s12 ">{product.title}</div>
+        //         <div className="col l2 s12 ">{product.price}</div>
+        //         <div className="col l2 s12 ">{product.count}</div>
+        //         <div className="col l2 s12 "></div>
+        //         <div className="col l2 s12 ">{product.total}</div>
+        //       </div>
+        //       {/* <CartTotals value={productsInCart} history={this.props.history} /> */}
+        //       {/* <CartTotals value={productsInCart} /> */}
+        //     </div>
+        //   );
+        // })
+      }
+    </>
+  ) : (
+    <EmptyCart />
   );
 };

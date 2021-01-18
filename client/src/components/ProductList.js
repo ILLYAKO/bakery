@@ -1,29 +1,13 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { useHttp } from "../hooks/http.hook";
-// import { storeProducts } from "../assets/data";
 import { Product } from "./Product";
+import { useProduct } from "../context/ProductContext";
 
 export const ProductList = () => {
-  const { request } = useHttp();
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const func = async () => {
-      try {
-        const result = await request("/api/product/products", "POST", {
-          products: "allProduct",
-        });
-        setData(result);
-      } catch (e) {}
-    };
-    func();
-  }, [request]);
+  const { storeProducts } = useProduct();
   return (
     <div className="row">
-      <h2>Product List</h2>
-      {/* {storeProducts.map((product) => { */}
-      {data.map((product) => {
+      <h3>Product List</h3>
+      {storeProducts.map((product) => {
         return <Product key={product.id} product={product} />;
       })}
     </div>

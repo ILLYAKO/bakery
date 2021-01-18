@@ -5,7 +5,7 @@ export const CartColumns = () => {
     <div className="container-fluid center-align d-none d-lg-block">
       <div className="row">
         <div className="col l2 s12 ">
-          <p className="text-uppercase">products</p>
+          <p className="text-uppercase">Company</p>
         </div>
         <div className="col l2 s12 ">
           <p className="text-uppercase">name of product</p>

@@ -1,30 +1,33 @@
 import React from "react";
 
 export default function CartItem({ item, value }) {
-  const { id, title, img, price, total, count } = item;
+  const { id, title, imgUrl, price, total, count } = item;
   const { increment, decrement, removeItem } = value;
+  const shortLink = imgUrl? require(`../../assets/images/${imgUrl}`) : "";
+  // console.log("shortLink", shortLink);
   return (
     <div className="row my-2 text-capitalize text-center">
-      <div className="col-10 mx-auto col-lg-2">
+      <div className="col l2 s12 mx-auto col-lg-2">
         <img
-          src={img}
-          style={{ width: "5rem", height: "5rem" }}
+          // src={img}
+          src={shortLink.default.toString()}
+          style={{ width: "3rem", height: "3rem" }}
           className="img-fluid"
           alt="product"
         />
       </div>
 
-      <div className="col-10 mx-auto col-lg-2">
+      <div className="col l2 s12 mx-auto col-lg-2">
         <span className="d-lg-none">product :</span>
         {title}
       </div>
 
-      <div className="col-10 mx-auto col-lg-2">
+      <div className="col l2 s12 mx-auto col-lg-2">
         <span className="d-lg-none">price :</span>
         {price}
       </div>
 
-      <div className="col-10 mx-auto col-lg-2 my-2 my-lg-0">
+      <div className="col l2 s12 mx-auto col-lg-2 my-2 my-lg-0">
         <div className="d-flex justify-contnet-center">
           <span
             className="btn btn-black mx-1"
@@ -45,17 +48,17 @@ export default function CartItem({ item, value }) {
           </span>
         </div>
       </div>
-      <div className="col-10 mx-auto col-lg-2">
+      <div className="col l2 s12 mx-auto col-lg-2">
         <div
           className="cart-icon"
           onClick={() => {
             removeItem(id);
           }}
         >
-          <i className="fas fa-trash"></i>
+          <i className="fas fa-trash">remove</i>
         </div>
       </div>
-      <div className="col-10 mx-auto col-lg-2">
+      <div className="col l2 s12 mx-auto col-lg-2">
         <strong>item total :${total}</strong>
       </div>
     </div>
