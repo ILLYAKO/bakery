@@ -1,4 +1,10 @@
-import React, { useState, useContext, useCallback, useEffect } from "react";
+import React, {
+  useState,
+  useContext,
+  useCallback,
+  useEffect,
+  useMemo,
+} from "react";
 
 import { useHttp } from "../hooks/http.hook";
 import { Product } from "../components/Product";
@@ -12,6 +18,7 @@ export const useProduct = () => {
 export const ProductProvider = ({ children }) => {
   //
   const { request } = useHttp();
+  
   const [storeProducts, setStoreProducts] = useState([]);
   const [product, setProduct] = useState();
   const [productsInCart, setProductsInCart] = useState([]);
@@ -45,8 +52,10 @@ export const ProductProvider = ({ children }) => {
     product.count = 1;
     const price = product.price;
     product.total = price;
-    setStoreProducts(tempProducts);
+
     setProductsInCart([...productsInCart, product]);
+    setStoreProducts(tempProducts);
+    console.log("productsInCart", productsInCart);
     addTotals();
   };
 
@@ -92,7 +101,9 @@ export const ProductProvider = ({ children }) => {
 
   const addTotals = () => {
     let subTotal = 0;
+    console.log("-*->-addTotals-productsInCart", productsInCart);
     productsInCart.map((item) => {
+      console.log("item.total: ", item.total);
       subTotal += item.total;
     });
     const tempTax = subTotal * 0.1;
@@ -101,6 +112,10 @@ export const ProductProvider = ({ children }) => {
     setCartSubTotal(subTotal);
     setCartTax(tax);
     setCartTotal(total);
+  };
+
+  const clearCart = () => {
+    console.log("clearCart");
   };
 
   return (
@@ -113,6 +128,10 @@ export const ProductProvider = ({ children }) => {
         addProductInCart,
         increment,
         decrement,
+        cartSubTotal,
+        cartTax,
+        cartTotal,
+        clearCart,
       }}
     >
       {children}

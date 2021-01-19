@@ -4,9 +4,10 @@ import { useProduct } from "../context/ProductContext";
 export const Product = (props) => {
   const shortLink = require(`../assets/images/${props.product.imgUrl}`);
   const value = useProduct();
-  const addToCartHandler = async (id) => {
+
+  const addToCartHandler =  (id) => {
     console.log(`hello from add To Cart. Id is ${id}`);
-    value.addProductInCart(id);
+     value.addProductInCart(id);
   };
 
   return (
@@ -35,9 +36,14 @@ export const Product = (props) => {
             title={!props.product.inCart ? "Add to Cart" : "Product in Cart"}
             disabled={props.product.inCart}
             className="col"
-            onClick={() => {
-              addToCartHandler(props.product.id);
-            }}
+            onClick={
+ 
+              () => {
+               addToCartHandler(props.product.id);
+              
+            }
+
+          }
           >
             Add to Cart
           </button>

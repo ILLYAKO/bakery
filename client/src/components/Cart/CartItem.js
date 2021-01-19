@@ -18,12 +18,12 @@ export default function CartItem({ item, value }) {
       </div>
 
       <div className="col l2 s12 mx-auto col-lg-2">
-        <span className="d-lg-none">product :</span>
+        <span className="d-lg-none">product: </span>
         {title}
       </div>
 
       <div className="col l2 s12 mx-auto col-lg-2">
-        <span className="d-lg-none">price :</span>
+        <span className="d-lg-none">price: </span>
         {price}
       </div>
 
