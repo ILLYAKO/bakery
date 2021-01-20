@@ -20,7 +20,6 @@ export const Cart = () => {
       <CartColumns />
       {console.log("value.productsInCart", value.productsInCart)}
       <CartList value={value} />
-      {/* <CartTotals value={value} history={this.props.history} /> */}
       <CartTotals value={value} history={history} />
     </>
   ) : (

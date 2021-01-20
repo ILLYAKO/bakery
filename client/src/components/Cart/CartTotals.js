@@ -17,6 +17,7 @@ export default function CartTotals({ value, history }) {
                 type="button"
                 onClick={() => {
                   clearCart();
+                  history.push("/");
                 }}
               >
                 clear cart

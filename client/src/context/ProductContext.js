@@ -18,7 +18,7 @@ export const useProduct = () => {
 export const ProductProvider = ({ children }) => {
   //
   const { request } = useHttp();
-  
+
   const [storeProducts, setStoreProducts] = useState([]);
   const [product, setProduct] = useState();
   const [productsInCart, setProductsInCart] = useState([]);
@@ -52,11 +52,12 @@ export const ProductProvider = ({ children }) => {
     product.count = 1;
     const price = product.price;
     product.total = price;
-
+    console.log("productsInCart0", productsInCart);
+    // setProductsInCart(productsInCart, addTotals());
     setProductsInCart([...productsInCart, product]);
     setStoreProducts(tempProducts);
-    console.log("productsInCart", productsInCart);
-    addTotals();
+    console.log("productsInCart1", productsInCart);
+    addTotals([...productsInCart, product]);
   };
 
   const increment = (id) => {
@@ -67,7 +68,7 @@ export const ProductProvider = ({ children }) => {
     product.count = product.count + 1;
     product.total = product.count * product.price;
     setProductsInCart([...tempCart]);
-    addTotals();
+    addTotals(productsInCart);
   };
 
   const decrement = (id) => {
@@ -81,7 +82,7 @@ export const ProductProvider = ({ children }) => {
     } else {
       product.total = product.count * product.price;
       setProductsInCart([...tempCart]);
-      addTotals();
+      addTotals(productsInCart);
     }
   };
 
@@ -96,13 +97,13 @@ export const ProductProvider = ({ children }) => {
     removedProduct.total = 0;
     setStoreProducts(tempProducts);
     setProductsInCart([...tempCart]);
-    addTotals();
+    addTotals(productsInCart);
   };
 
-  const addTotals = () => {
+  const addTotals = (tempProductsInCart) => {
     let subTotal = 0;
-    console.log("-*->-addTotals-productsInCart", productsInCart);
-    productsInCart.map((item) => {
+    console.log("-*->-addTotals-productsInCart", tempProductsInCart);
+    tempProductsInCart.map((item) => {
       console.log("item.total: ", item.total);
       subTotal += item.total;
     });
@@ -113,8 +114,12 @@ export const ProductProvider = ({ children }) => {
     setCartTax(tax);
     setCartTotal(total);
   };
+  
 
   const clearCart = () => {
+    setProductsInCart([]);
+    setStoreProducts([]);
+    addTotals([]);
     console.log("clearCart");
   };
 
@@ -132,6 +137,7 @@ export const ProductProvider = ({ children }) => {
         cartTax,
         cartTotal,
         clearCart,
+        removeItem
       }}
     >
       {children}
