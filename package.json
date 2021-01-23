@@ -21,12 +21,14 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.6.0",
     "config": "^3.3.2",
     "express": "^4.17.1",
     "express-validator": "^6.7.0",
     "jsonwebtoken": "^8.5.1",
     "materialize-css": "^1.0.0",
     "mongoose": "^5.10.16",
+    "react-bootstrap": "^1.4.3",
     "react-paypal-express-checkout": "^1.0.5",
     "react-router-dom": "^5.2.0",
     "uuid": "^8.3.1"

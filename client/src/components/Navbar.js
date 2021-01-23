@@ -11,72 +11,60 @@ export const Navbar = (props) => {
     history.push("/");
   };
   return (
-    <>
-      <nav className="nav-extended">
-        <div className="nav-wrapper">
-          <div className="container">
-            <NavLink to="/" className="brand-logo">
-              Logo
-            </NavLink>
+    <div className="container">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <NavLink to="/" className="brand-logo">
+            Logo
+          </NavLink>
+          <div className="d-flex" id="navbarNav">
             {props.isAuthenticated ? (
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li>
+              <ul className="navbar-nav">
+                <li class="nav-item">
                   <NavLink to="/" onClick={logoutHandler}>
                     Logout
                   </NavLink>
                 </li>
               </ul>
             ) : (
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li>
+              <ul className="navbar-nav">
+                <li class="nav-item">
                   <NavLink to="/login">Login</NavLink>
                 </li>
-                <li>
+                <li class="nav-item">
                   <NavLink to="/register">Register now</NavLink>
                 </li>
               </ul>
             )}
           </div>
         </div>
-
-        <div className="nav-wrapper">
-          <div className="container">
-            <ul id="nav-mobile" className="left hide-on-med-and-down">
-              <li>
-                <NavLink to="/">home</NavLink>
+      </nav>
+      {/* //// */}
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid" id="nav-mobile">
+          <ul className="navbar-nav">
+            <li class="nav-item ">
+              <NavLink to="/">home</NavLink>
+            </li>
+            <li class="nav-item ml-2 ">
+              <NavLink to="/">Our products</NavLink>
+            </li>
+            {props.isAuthenticated ? (
+              <li class="nav-item ml-2">
+                <NavLink to="/addproduct">Add product</NavLink>
               </li>
-              <li>
-                <NavLink to="/">Our products</NavLink>
+            ) : (
+              <li class="nav-item ml-2">
+                <NavLink to="/">Contact us</NavLink>
               </li>
-              {props.isAuthenticated ? (
-                <li>
-                  <NavLink to="/addproduct">Add product</NavLink>
-                </li>
-              ) : (
-                <li>
-                  <NavLink to="/">Contact us</NavLink>
-                </li>
-              )}
-            </ul>
+            )}
+          </ul>
 
-            <NavLink to="/cart" className="right brand-logo">
-              Cart
-            </NavLink>
-          </div>
+          <NavLink to="/cart" className="d-flex">
+            Cart
+          </NavLink>
         </div>
       </nav>
-
-      {/* <ul className="sidenav" id="mobile-demo">
-          <li>
-            <a href="sass.html">Sass</a>
-          </li>
-          <li>
-            <a href="badges.html">Components</a>
-          </li>
-          <li>
-            <a href="collapsible.html">JavaScript</a>
-          </li>
-        </ul> */}
-    </>
+    </div>
   );
 };

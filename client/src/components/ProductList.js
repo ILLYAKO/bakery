@@ -6,7 +6,10 @@ export const ProductList = () => {
   const { storeProducts } = useProduct();
   return (
     <div className="row">
-      <h3>Product List</h3>
+      <div className="col-12">
+        <h3>Product List</h3>
+      </div>
+
       {storeProducts.map((product) => {
         return <Product key={product.id} product={product} />;
       })}

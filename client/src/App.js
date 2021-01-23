@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import "materialize-css";
+// import "materialize-css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
