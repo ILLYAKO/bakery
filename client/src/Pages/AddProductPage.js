@@ -1,16 +1,11 @@
-// import React, { useContext } from "react";
-// import { useState, useEffect } from "react";
 import React from "react";
 import { useState } from "react";
 import { useHttp } from "../hooks/http.hook";
 import { useMessage } from "../hooks/message.hook";
 const { v4: uuidv4 } = require("uuid");
 
-
-
 export const AddProductPage = () => {
   const [formProduct, setFormProduct] = useState({
-    // id: "",
     title: "",
     imgUrl: "",
     price: 0,
@@ -21,9 +16,7 @@ export const AddProductPage = () => {
     total: 0,
   });
   const message = useMessage();
-  // const { loading, request, error, clearError } = useHttp();
   const { loading, request } = useHttp();
-
   const changeHandler = (event) => {
     setFormProduct({
       ...formProduct,
@@ -31,7 +24,8 @@ export const AddProductPage = () => {
     });
   };
 
-  const addProductHandler = async () => {
+  const addProductHandler = async (event) => {
+    event.preventDefault();
     const userId = uuidv4();
     await setFormProduct({
       ...formProduct,
@@ -40,7 +34,9 @@ export const AddProductPage = () => {
 
     try {
       console.log(" --> addProductHandler:", formProduct);
-      const data = await request("/api/product/add", "POST", {...formProduct})
+      const data = await request("/api/product/add", "POST", {
+        ...formProduct,
+      });
       console.log("data: ", data);
       message(data.message);
     } catch (e) {
@@ -50,88 +46,90 @@ export const AddProductPage = () => {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col s12 m12">
-          <h2>Add Product</h2>
-          <div className="card blue darken-1">
-            <div className="card-content white-text">
-              <span className="card-title">Product</span>
-              <div className="input-field">
-                <input
-                  placeholder="Enter product title"
-                  id="title"
-                  type="text"
-                  name="title"
-                  className="yellow-input"
-                  value={formProduct.title}
-                  onChange={changeHandler}
-                />
-                <label htmlFor="title">Title</label>
-              </div>
-              <div className="input-field">
-                <input
-                  placeholder="Enter image url"
-                  id="imgUrl"
-                  type="text"
-                  name="imgUrl"
-                  className="yellow-input"
-                  value={formProduct.imgUrl}
-                  onChange={changeHandler}
-                />
-                <label htmlFor="imgUrl">Image Url</label>
-              </div>
-
-              <div className="input-field">
-                <input
-                  placeholder="Enter price"
-                  id="price"
-                  type="text"
-                  name="price"
-                  className="yellow-input"
-                  value={formProduct.price}
-                  onChange={changeHandler}
-                />
-                <label htmlFor="price">Price</label>
-              </div>
-
-              <div className="input-field">
-                <input
-                  placeholder="Enter product company"
-                  id="company"
-                  type="text"
-                  name="company"
-                  className="yellow-input"
-                  value={formProduct.company}
-                  onChange={changeHandler}
-                />
-                <label htmlFor="company">Company</label>
-              </div>
-
-              <div className="input-field">
-                <input
-                  placeholder="Enter info"
-                  id="info"
-                  type="text"
-                  name="info"
-                  className="yellow-input"
-                  value={formProduct.info}
-                  onChange={changeHandler}
-                />
-                <label htmlFor="info">Info</label>
-              </div>
-            </div>
-            <div className="card-action">
-              <button
-                className="btn grey lighten-1 black-text"
-                onClick={addProductHandler}
-                disabled={loading}
-              >
-                Add Product
-              </button>
-            </div>
-          </div>
+      <form className="m-3">
+        <h5>Add Product</h5>
+        <div className="form-group row">
+          <label htmlFor="title" class="col-sm-2 col-form-label">
+            Title
+          </label>
+          <input
+            placeholder="Enter product title"
+            id="title"
+            type="text"
+            name="title"
+            className="col form-control"
+            value={formProduct.title}
+            onChange={changeHandler}
+          />
         </div>
-      </div>
+        <div className="form-group row">
+          <label htmlFor="imgUrl" class="col-sm-2 col-form-label">
+            Image Url
+          </label>
+          <input
+            placeholder="Enter image url"
+            id="imgUrl"
+            type="text"
+            name="imgUrl"
+            className="col form-control"
+            value={formProduct.imgUrl}
+            onChange={changeHandler}
+          />
+        </div>
+
+        <div className="form-group row">
+          <label htmlFor="price" class="col-sm-2 col-form-label">
+            Price
+          </label>{" "}
+          <input
+            placeholder="Enter price"
+            id="price"
+            type="text"
+            name="price"
+            className="col form-control"
+            value={formProduct.price}
+            onChange={changeHandler}
+          />
+        </div>
+
+        <div className="form-group row">
+          <label htmlFor="company" class="col-sm-2 col-form-label">
+            Company
+          </label>
+          <input
+            placeholder="Enter product company"
+            id="company"
+            type="text"
+            name="company"
+            className="col form-control"
+            value={formProduct.company}
+            onChange={changeHandler}
+          />
+        </div>
+
+        <div className="form-group row">
+          <label htmlFor="info" class="col-sm-2 col-form-label">
+            Info
+          </label>
+          <textarea
+            placeholder="Enter info"
+            id="info"
+            type="text"
+            name="info"
+            className="col form-control"
+            value={formProduct.info}
+            onChange={changeHandler}
+          />
+        </div>
+
+        <button
+          className="col btn btn-success"
+          onClick={addProductHandler}
+          disabled={loading}
+        >
+          Add Product
+        </button>
+      </form>
     </div>
   );
 };

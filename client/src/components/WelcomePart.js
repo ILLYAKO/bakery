@@ -4,7 +4,7 @@ import image00 from "../assets/images/image00.jpg";
 export const WelcomePart = () => {
   return (
     <>
-      <h2>Welcome! </h2>
+      <h3>Welcome! </h3>
       <div className="row">
         <div className="col-sm-8 ">
           <img className="img-fluid" src={image00} alt="image00" />

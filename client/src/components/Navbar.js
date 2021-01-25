@@ -13,14 +13,14 @@ export const Navbar = (props) => {
   return (
     <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <NavLink to="/" className="brand-logo">
+        <div className="container-fluid">
+          <NavLink to="/" className="navbar-brand mb-0 h1">
             Logo
           </NavLink>
           <div className="d-flex" id="navbarNav">
             {props.isAuthenticated ? (
               <ul className="navbar-nav">
-                <li class="nav-item">
+                <li className="nav-item">
                   <NavLink to="/" onClick={logoutHandler}>
                     Logout
                   </NavLink>
@@ -28,11 +28,11 @@ export const Navbar = (props) => {
               </ul>
             ) : (
               <ul className="navbar-nav">
-                <li class="nav-item">
-                  <NavLink to="/login">Login</NavLink>
+                <li className="nav-item">
+                  <NavLink to="/login" >Login</NavLink>
                 </li>
-                <li class="nav-item">
-                  <NavLink to="/register">Register now</NavLink>
+                <li className="nav-item">
+                  <NavLink to="/register" className="ml-3">Register now</NavLink>
                 </li>
               </ul>
             )}
@@ -41,20 +41,20 @@ export const Navbar = (props) => {
       </nav>
       {/* //// */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid" id="nav-mobile">
+        <div className="container-fluid" id="nav-mobile">
           <ul className="navbar-nav">
-            <li class="nav-item ">
+            <li className="nav-item ">
               <NavLink to="/">home</NavLink>
             </li>
-            <li class="nav-item ml-2 ">
+            <li className="nav-item ml-2 ">
               <NavLink to="/">Our products</NavLink>
             </li>
             {props.isAuthenticated ? (
-              <li class="nav-item ml-2">
+              <li className="nav-item ml-2">
                 <NavLink to="/addproduct">Add product</NavLink>
               </li>
             ) : (
-              <li class="nav-item ml-2">
+              <li className="nav-item ml-2">
                 <NavLink to="/">Contact us</NavLink>
               </li>
             )}

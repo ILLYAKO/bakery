@@ -20,9 +20,9 @@ export const RegisterPage = () => {
     clearError();
   }, [error, message, clearError]);
 
-  useEffect(() => {
-    window.M.updateTextFields();
-  }, []);
+  // useEffect(() => {
+  //   window.M.updateTextFields();
+  // }, []);
 
   const changeHandler = (event) => {
     setform({
@@ -31,7 +31,8 @@ export const RegisterPage = () => {
     });
   };
 
-  const registerHandler = async () => {
+  const registerHandler = async (event) => {
+    event.preventDefault();
     try {
       console.log("registerHandler");
       const data = await request("/api/auth/register", "POST", { ...form });
@@ -41,57 +42,46 @@ export const RegisterPage = () => {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col s12 m8">
-          <h2>Register Page</h2>
-          <div className="card blue darken-1">
-            <div className="card-content white-text">
-              <span className="card-title">Registration</span>
-              <div className="input-field">
-                <input
-                  placeholder="Enter your email"
-                  id="email"
-                  type="text"
-                  name="email"
-                  className="yellow-input"
-                  value={form.email}
-                  onChange={changeHandler}
-                />
-                <label htmlFor="email">Email</label>
-              </div>
-              <div className="input-field">
-                <input
-                  placeholder="Enter password"
-                  id="password"
-                  type="password"
-                  name="password"
-                  className="yellow-input"
-                  value={form.password}
-                  onChange={changeHandler}
-                />
-                <label htmlFor="password">Password</label>
-              </div>
-            </div>
-            <div className="card-action">
-              {/* <button
-              className="btn yellow darken-4"
-              style={{ marginRight: 10 }}
-              onClick={loginHandler}
-              disabled={loading}
-            >
-              Login
-            </button> */}
-              <button
-                className="btn grey lighten-1 black-text"
-                onClick={registerHandler}
-                disabled={loading}
-              >
-                Register
-              </button>
-            </div>
-          </div>
+      <form className="m-3">
+        <h5>Sign up</h5>
+        <div className="form-group row">
+          <label htmlFor="email" className="col-sm-2 col-form-label">
+            Email
+          </label>
+          <input
+            placeholder="Enter your email"
+            id="email"
+            type="text"
+            name="email"
+            className="col form-control"
+            value={form.email}
+            onChange={changeHandler}
+          />
         </div>
-      </div>
+        <div className="form-group row">
+          <label htmlFor="password" className="col-sm-2 col-form-label">
+            Password
+          </label>
+          <input
+            placeholder="Enter password"
+            id="password"
+            type="password"
+            name="password"
+            className="col form-control"
+            value={form.password}
+            onChange={changeHandler}
+          />
+        </div>
+        <div className="card-action">
+          <button
+            className="col btn btn-success"
+            onClick={registerHandler}
+            disabled={loading}
+          >
+            Register
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
