@@ -45,7 +45,7 @@ export const Footer = () => {
           <div className="container">
             © 2021 Copyright Text
             <a className="text-dark ml-3" href="#!">
-              More Links
+              More Links.!!
             </a>
           </div>
         </div>
