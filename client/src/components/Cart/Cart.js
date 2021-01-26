@@ -16,12 +16,12 @@ export const Cart = () => {
   const value = useProduct();
   const { productsInCart } = value;
   return productsInCart.length > 0 ? (
-    <>
+    <div className="container">
       <CartColumns />
       {console.log("value.productsInCart", value.productsInCart)}
       <CartList value={value} />
       <CartTotals value={value} history={history} />
-    </>
+    </div>
   ) : (
     <EmptyCart />
   );

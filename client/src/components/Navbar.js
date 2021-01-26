@@ -44,7 +44,7 @@ export const Navbar = (props) => {
         <div className="container-fluid" id="nav-mobile">
           <ul className="navbar-nav">
             <li className="nav-item ">
-              <NavLink to="/">home</NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li className="nav-item ml-2 ">
               <NavLink to="/">Our products</NavLink>

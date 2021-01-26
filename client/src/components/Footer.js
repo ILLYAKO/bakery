@@ -7,7 +7,7 @@ export const Footer = () => {
           <div className="row">
             <div className="col-lg-8 col-md-12 mb-4 mb-md-0">
               <h6 className="text-uppercase">Footer Content</h6>
-              <p className="text-left">
+              <p className="text-left pl-4">
                 You can use rows and columns here to organize your footer
                 content. Lorem ipsum dolor sit amet consectetur, adipisicing
                 elit. Iste atque ea quis molestias. Fugiat pariatur maxime quis
@@ -43,7 +43,7 @@ export const Footer = () => {
           </div>
           <div className="text-center p-3">
             <div className="container">
-              © 2020 Copyright Text
+              © 2021 Copyright Text
               <a className="text-dark ml-3" href="#!">
                 More Links
               </a>

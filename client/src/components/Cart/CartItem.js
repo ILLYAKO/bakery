@@ -3,7 +3,7 @@ import React from "react";
 export default function CartItem({ item, value }) {
   const { id, title, imgUrl, price, total, count } = item;
   const { increment, decrement, removeItem } = value;
-  const shortLink = imgUrl? require(`../../assets/images/${imgUrl}`) : "";
+  const shortLink = imgUrl ? require(`../../assets/images/${imgUrl}`) : "";
   // console.log("shortLink", shortLink);
   return (
     <div className="row my-2 text-capitalize text-center">
@@ -29,23 +29,23 @@ export default function CartItem({ item, value }) {
 
       <div className="col l2 s12 mx-auto col-lg-2 my-2 my-lg-0">
         <div className="d-flex justify-contnet-center">
-          <span
-            className="btn btn-black mx-1"
+          <button
+            className="btn btn-outline-primary mx-1"
             onClick={() => {
               decrement(id);
             }}
           >
             -
-          </span>
+          </button>
           <span className="btn btn-black mx-1">{count}</span>
-          <span
-            className="btn btn-black mx-1"
+          <button
+            className="btn btn-outline-primary mx-1"
             onClick={() => {
               increment(id);
             }}
           >
             +
-          </span>
+          </button>
         </div>
       </div>
       <div className="col l2 s12 mx-auto col-lg-2">

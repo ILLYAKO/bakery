@@ -1,4 +1,5 @@
 /* @import "~materialize-css/dist/css/materialize.min.css"; */
+@import "~react-image-gallery/styles/css/image-gallery.css";
 
 body {
   display: flex;
@@ -7,8 +8,10 @@ body {
 }
 
 .watermark-text {
+  color: white;
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
     1px 1px 1px rgba(0, 0, 0, 0.5), 10px 0px 8px rgba(0, 0, 0, 0.4);
+  font-size: 1.5em;
   font-style: italic;
   font-family: cursive;
   text-transform: capitalize;

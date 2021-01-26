@@ -11,19 +11,22 @@ export const Product = (props) => {
   };
 
   return (
-    <div className="col-6">
+    <div className="col-12 col-sm-6">
       <div className="card">
         <div className="card-body">
           <div className="card-image">
             <img
-              className="img-fluid"
+              className="card-img"
               src={shortLink.default.toString()}
               alt={`${props.product.title} -$${props.product.price}`}
               title={`${props.product.title} -$${props.product.price}`}
             />
-            <span className="card-title watermark-text">
-              {props.product.title}
-            </span>
+            {/* <span className="card-title  watermark-text"> */}
+            <div class="card-img-overlay">
+              <span className="card-title ml-3 watermark-text">
+                {props.product.title}
+              </span>
+            </div>
           </div>
           <div className="card-content">
             <p>{props.product.info}</p>
