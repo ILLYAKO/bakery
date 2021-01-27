@@ -12,7 +12,7 @@ app.use("/api/cart", require("./routes/cart.routes"));
 
 const PORT = config.get("port") || 5000;
 
-async function start(params) {
+async function start() {
   try {
     await mongoose
       .connect(config.get("mongoUri"), {
@@ -37,5 +37,3 @@ async function start(params) {
 }
 
 start();
-
-//app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`));

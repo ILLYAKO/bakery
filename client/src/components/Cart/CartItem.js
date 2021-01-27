@@ -4,12 +4,10 @@ export default function CartItem({ item, value }) {
   const { id, title, imgUrl, price, total, count } = item;
   const { increment, decrement, removeItem } = value;
   const shortLink = imgUrl ? require(`../../assets/images/${imgUrl}`) : "";
-  // console.log("shortLink", shortLink);
   return (
     <div className="row my-2 text-capitalize text-center">
       <div className="col l2 s12 mx-auto col-lg-2">
         <img
-          // src={img}
           src={shortLink.default.toString()}
           style={{ width: "3rem", height: "3rem" }}
           className="img-fluid"

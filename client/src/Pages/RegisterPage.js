@@ -5,7 +5,6 @@ import { useMessage } from "../hooks/message.hook";
 import { AuthContext } from "../context/AuthContext";
 
 export const RegisterPage = () => {
-  // eslint-disable-next-line
   const auth = useContext(AuthContext);
   const message = useMessage();
   const { loading, request, error, clearError } = useHttp();
@@ -19,10 +18,6 @@ export const RegisterPage = () => {
     message(error);
     clearError();
   }, [error, message, clearError]);
-
-  // useEffect(() => {
-  //   window.M.updateTextFields();
-  // }, []);
 
   const changeHandler = (event) => {
     setform({

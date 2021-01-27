@@ -14,15 +14,13 @@ const App = () => {
   const { token, login, logout, userId } = useAuth();
   const isAuthenticated = !!token;
   const routes = useRoutes(isAuthenticated);
-  //
-
-  const [testText, setTestText] = useState("Test Context") ;
+  const [testText, setTestText] = useState("Test Context");
 
   return (
     <AuthContext.Provider
       value={{ token, login, logout, userId, isAuthenticated }}
     >
-      <ProductProvider >
+      <ProductProvider>
         <Router>
           <Navbar isAuthenticated={isAuthenticated} />
           {routes}

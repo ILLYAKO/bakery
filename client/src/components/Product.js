@@ -21,7 +21,6 @@ export const Product = (props) => {
               alt={`${props.product.title} -$${props.product.price}`}
               title={`${props.product.title} -$${props.product.price}`}
             />
-            {/* <span className="card-title  watermark-text"> */}
             <div class="card-img-overlay">
               <span className="card-title ml-3 watermark-text">
                 {props.product.title}

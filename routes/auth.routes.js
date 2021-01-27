@@ -7,8 +7,6 @@ const { check, validationResult } = require("express-validator");
 const User = require("../models/User");
 const router = Router();
 
-// /api/auth
-//         /register
 router.post(
   "/register",
   [
@@ -50,15 +48,12 @@ router.post(
       });
 
       res.status(201).json({ message: "User created!" });
-
     } catch (e) {
       return res.status(500).json({ message: "Something wrong, try again!" });
     }
   }
 );
 
-// /api/auth
-//          /login
 router.post(
   "/login",
   [
@@ -76,7 +71,7 @@ router.post(
           message: "wrong login data",
         });
       }
-      //
+
       const { email, password } = req.body;
       const user = await User.findOne({ email });
 
@@ -94,8 +89,6 @@ router.post(
       });
 
       res.json({ token, userId: user.id });
-
-      //
     } catch (e) {
       return res.status(500).json({ message: "Something wrong, try again!" });
     }

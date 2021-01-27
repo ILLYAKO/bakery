@@ -16,9 +16,7 @@ export const useProduct = () => {
 };
 
 export const ProductProvider = ({ children }) => {
-  //
   const { request } = useHttp();
-
   const [storeProducts, setStoreProducts] = useState([]);
   const [product, setProduct] = useState();
   const [productsInCart, setProductsInCart] = useState([]);
@@ -26,7 +24,6 @@ export const ProductProvider = ({ children }) => {
   const [cartTax, setCartTax] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
 
-  //
   useEffect(() => {
     const func = async () => {
       try {
@@ -53,7 +50,6 @@ export const ProductProvider = ({ children }) => {
     const price = product.price;
     product.total = price;
     console.log("productsInCart0", productsInCart);
-    // setProductsInCart(productsInCart, addTotals());
     setProductsInCart([...productsInCart, product]);
     setStoreProducts(tempProducts);
     console.log("productsInCart1", productsInCart);
@@ -113,8 +109,7 @@ export const ProductProvider = ({ children }) => {
     setCartSubTotal(subTotal);
     setCartTax(tax);
     setCartTotal(total);
-  };
-  
+  };  
 
   const clearCart = () => {
     setProductsInCart([]);

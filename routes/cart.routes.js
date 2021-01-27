@@ -7,54 +7,44 @@ const { check, validationResult } = require("express-validator");
 const User = require("../models/User");
 const router = Router();
 
-// /api/cart
-//         /add
-router.post(
-  "/add",
-  [
-    check("title").exists(),
-  ],
-  async (req, res) => {
-    try {
-      const errors = validationResult(req);
+router.post("/add", [check("title").exists()], async (req, res) => {
+  try {
+    const errors = validationResult(req);
 
-      if (!errors.isEmpty) {
-        return res.status(400).json({
-          errors: errors.array(),
-          message: "wrong cart data",
-        });
-      }
-
-      const { email, password } = req.body;
-      const candidate = await User.findOne({ email });
-
-      if (candidate) {
-        res.status(400).json({ message: "User exist." });
-      }
-
-      const userId = uuidv4();
-      const hashedPassword = await bcrypt.hash(password, 12);
-      const user = new User({
-        id: userId,
-        email,
-        password: hashedPassword,
-        status: "customer",
-        cart: [],
+    if (!errors.isEmpty) {
+      return res.status(400).json({
+        errors: errors.array(),
+        message: "wrong cart data",
       });
-
-      await user.save().then((result) => {
-        console.log("User was created!");
-      });
-
-      res.status(201).json({ message: "User created!" });
-    } catch (e) {
-      return res.status(500).json({ message: "Something wrong, try again!" });
     }
-  }
-);
 
-// /api/auth
-//          /login
+    const { email, password } = req.body;
+    const candidate = await User.findOne({ email });
+
+    if (candidate) {
+      res.status(400).json({ message: "User exist." });
+    }
+
+    const userId = uuidv4();
+    const hashedPassword = await bcrypt.hash(password, 12);
+    const user = new User({
+      id: userId,
+      email,
+      password: hashedPassword,
+      status: "customer",
+      cart: [],
+    });
+
+    await user.save().then((result) => {
+      console.log("User was created!");
+    });
+
+    res.status(201).json({ message: "User created!" });
+  } catch (e) {
+    return res.status(500).json({ message: "Something wrong, try again!" });
+  }
+});
+
 router.post(
   "/login",
   [
@@ -72,7 +62,7 @@ router.post(
           message: "wrong login data",
         });
       }
-      //
+
       const { email, password } = req.body;
       const user = await User.findOne({ email });
 
@@ -90,8 +80,6 @@ router.post(
       });
 
       res.json({ token, userId: user.id });
-
-      //
     } catch (e) {
       return res.status(500).json({ message: "Something wrong, try again!" });
     }

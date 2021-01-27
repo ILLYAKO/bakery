@@ -1,10 +1,6 @@
-// import React, { Component } from "react";
-// import React from "react";
 import React, { useContext } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useProduct } from "../../context/ProductContext";
-
-// import Title from "../Title";
 import { CartColumns } from "./CartColumns";
 import { CartItem } from "./CartItem";
 import EmptyCart from "./EmptyCart";

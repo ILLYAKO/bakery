@@ -29,17 +29,18 @@ export const Navbar = (props) => {
             ) : (
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <NavLink to="/login" >Login</NavLink>
+                  <NavLink to="/login">Login</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/register" className="ml-3">Register now</NavLink>
+                  <NavLink to="/register" className="ml-3">
+                    Register now
+                  </NavLink>
                 </li>
               </ul>
             )}
           </div>
         </div>
       </nav>
-      {/* //// */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid" id="nav-mobile">
           <ul className="navbar-nav">
