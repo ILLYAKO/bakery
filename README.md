@@ -1,2 +1,2 @@
 # bakery
-bakery confectionery  mern react node
+MERN, ReactJS, NodeJS
