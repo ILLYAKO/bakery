@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import React from "react";
+import { useHistory } from "react-router-dom";
 import { useProduct } from "../../context/ProductContext";
 import { CartColumns } from "./CartColumns";
-import { CartItem } from "./CartItem";
 import EmptyCart from "./EmptyCart";
 import CartList from "./CartList";
 import CartTotals from "./CartTotals";

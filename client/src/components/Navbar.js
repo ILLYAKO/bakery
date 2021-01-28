@@ -15,7 +15,7 @@ export const Navbar = (props) => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <NavLink to="/" className="navbar-brand mb-0 h1">
-            Logo
+            BAKERY
           </NavLink>
           <div className="d-flex" id="navbarNav">
             {props.isAuthenticated ? (
