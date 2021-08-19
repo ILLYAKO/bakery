@@ -6,7 +6,7 @@ import Features from "../../particles/Features";
 
 const MainPage = () => {
   return (
-    <div class="container ">
+    <div className="container ">
       <CarouselMainPage></CarouselMainPage>
       <Headings></Headings>
       <Album></Album>

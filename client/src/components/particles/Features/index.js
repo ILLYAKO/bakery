@@ -4,7 +4,7 @@ import Feature from "./Feature";
 const Features = () => {
   return (
     <React.Fragment>
-      <hr class="featurette-divider"></hr>
+      <hr className="featurette-divider"></hr>
       <Feature
         title={"First featurette heading. It’ll blow your mind."}
         text={
@@ -12,7 +12,7 @@ const Features = () => {
         }
         img={"cookies.png"}
       ></Feature>
-      <hr class="featurette-divider"></hr>
+      <hr className="featurette-divider"></hr>
       <Feature
         title={"Oh yeah, it’s that good. See for yourself."}
         text={
@@ -20,7 +20,7 @@ const Features = () => {
         }
         img={"cheesecake.png"}
       ></Feature>
-      <hr class="featurette-divider"></hr>
+      <hr className="featurette-divider"></hr>
       <Feature
         title={"And lastly, this one. Checkmate."}
         text={
@@ -28,7 +28,7 @@ const Features = () => {
         }
         img={"cookies.png"}
       ></Feature>
-      <hr class="featurette-divider"></hr>
+      <hr className="featurette-divider"></hr>
     </React.Fragment>
   );
 };

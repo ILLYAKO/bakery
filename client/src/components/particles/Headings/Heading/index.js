@@ -2,9 +2,9 @@ import React from "react";
 
 const Heading = ({ title, text, img }) => {
   return (
-    <div class="col-lg-4 text-center">
+    <div className="col-lg-4 text-center">
       {/* <svg
-        class="bd-placeholder-img rounded-circle"
+        className="bd-placeholder-img rounded-circle"
         width="140"
         height="140"
         xmlns="http://www.w3.org/2000/svg"
@@ -21,16 +21,16 @@ const Heading = ({ title, text, img }) => {
         </text>
       </svg> */}
       <img
-        class="bd-placeholder-img rounded-circle"
+        className="bd-placeholder-img rounded-circle w-100"
         src={require("../../../../assets/images/" + img).default.toString()}
         alt={title}
-        width="160"
-        height="160"
+        // width="160"
+        // height="160"
       />
       <h2>{title}</h2>
       <p>{text}</p>
       <p>
-        <a class="btn btn-secondary" href="#">
+        <a className="btn btn-secondary" href="#">
           View details &raquo;
         </a>
       </p>

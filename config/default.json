@@ -1,6 +1,0 @@
-{
-  "port": 5000,
-  "jwtSecret": "sweet cookies",
-  "mongoUriold": "mongodb+srv://IllyaAdmin:Test123@cluster0.uiyyc.mongodb.net/app?retryWrites=true&w=majority",
-  "mongoUri":"mongodb+srv://IllyaAdmin:Test123@cluster0.p1yfs.mongodb.net/app?retryWrites=true&w=majority"
-}
