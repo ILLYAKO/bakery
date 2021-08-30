@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light fixed-top bg-light">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           Bakery
@@ -21,13 +21,18 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <a className="nav-link active" aria-current="page" href="/home">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/home">
-                Gallery
+              <a className="nav-link " href="  /user/dashborad">
+                Dashboard
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/product/album">
+                Album
               </a>
             </li>
             <li className="nav-item dropdown">
@@ -43,17 +48,17 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a className="dropdown-item" href="/home">
-                    Cake
+                  <a className="dropdown-item" href="/product/cakes">
+                    Cakes
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/home">
-                    Pie
+                  <a className="dropdown-item" href="/product/pies">
+                    Pies
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/home">
+                  <a className="dropdown-item" href="/product/cookies">
                     Cookies
                   </a>
                 </li>
@@ -66,6 +71,11 @@ const Navbar = () => {
                   </a>
                 </li> */}
               </ul>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/about">
+                About
+              </a>
             </li>
             {/* <li className="nav-item">
               <a

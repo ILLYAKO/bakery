@@ -1,6 +1,6 @@
 import React from "react";
 
-function CarouselMainPage() {
+function CarouselHomePage() {
   return (
     <div
       id="carouselSlidesOnly"
@@ -34,4 +34,4 @@ function CarouselMainPage() {
   );
 }
 
-export default CarouselMainPage;
+export default CarouselHomePage;

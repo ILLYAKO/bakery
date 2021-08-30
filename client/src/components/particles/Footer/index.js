@@ -6,7 +6,38 @@ const Footer = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-2">
-            <h5>Section</h5>
+            <h5>Bakery</h5>
+            <ul className="nav flex-column">
+              <li className="nav-item mb-2">
+                <a href="/home" className="nav-link p-0 text-muted">
+                  Home
+                </a>
+              </li>
+              <li className="nav-item mb-2">
+                <a href="/home" className="nav-link p-0 text-muted">
+                  Features
+                </a>
+              </li>
+              <li className="nav-item mb-2">
+                <a href="/home" className="nav-link p-0 text-muted">
+                  Pricing
+                </a>
+              </li>
+              <li className="nav-item mb-2">
+                <a href="/home" className="nav-link p-0 text-muted">
+                  FAQs
+                </a>
+              </li>
+              <li className="nav-item mb-2">
+                <a href="/home" className="nav-link p-0 text-muted">
+                  About
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="col-2">
+            <h5>Products</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <a href="/" className="nav-link p-0 text-muted">
@@ -37,38 +68,7 @@ const Footer = () => {
           </div>
 
           <div className="col-2">
-            <h5>Section</h5>
-            <ul className="nav flex-column">
-              <li className="nav-item mb-2">
-                <a href="/" className="nav-link p-0 text-muted">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item mb-2">
-                <a href="/" className="nav-link p-0 text-muted">
-                  Features
-                </a>
-              </li>
-              <li className="nav-item mb-2">
-                <a href="/" className="nav-link p-0 text-muted">
-                  Pricing
-                </a>
-              </li>
-              <li className="nav-item mb-2">
-                <a href="/" className="nav-link p-0 text-muted">
-                  FAQs
-                </a>
-              </li>
-              <li className="nav-item mb-2">
-                <a href="/" className="nav-link p-0 text-muted">
-                  About
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="col-2">
-            <h5>Section</h5>
+            <h5>Media</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <a href="/" className="nav-link p-0 text-muted">
@@ -121,7 +121,7 @@ const Footer = () => {
         </div>
 
         <div className="d-flex justify-content-between py-4 my-4 border-top">
-          <p>&copy; 2021 Company, Inc. All rights reserved.</p>
+          <p>&copy; 2021 Illya, Inc. All rights reserved.</p>
           <ul className="list-unstyled d-flex">
             <li className="ms-3">
               <a className="link-dark" href="/">
