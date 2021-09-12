@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { observer } from "mobx-react-lite";
 import { Context } from "../../../..";
+import "./style.css";
 
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
@@ -14,12 +15,12 @@ const RegisterPage = () => {
 
   return (
     <div className="container form-register">
-      <h2>Register</h2>
-      <h4>Create your account. It's free and only takes a minute</h4>
+      <h1 className="h3 mb-3 fw-normal">Please register</h1>
+      <h5>Create your account. It's free and only takes a minute.</h5>
 
       <form>
-        <div className=" form-floating mb-3">
-          <label htmlFor="floatingInput" className="form-label">
+        <div className="mb-3">
+          <label htmlFor="emailInput" className="form-label">
             Email address
           </label>
           <input
@@ -27,7 +28,7 @@ const RegisterPage = () => {
             value={email}
             type="email"
             className="form-control"
-            id="floatingInput"
+            id="emailInput"
             placeholder="name@example.com"
             aria-describedby="emailHelp"
           />
@@ -36,7 +37,7 @@ const RegisterPage = () => {
           </div>
         </div>
         <div className="mb-3">
-          <label htmlFor="floatingPassword" className="form-label">
+          <label htmlFor="passwordInput" className="form-label">
             Password
           </label>
           <input
@@ -44,11 +45,11 @@ const RegisterPage = () => {
             value={password}
             type="password"
             className="form-control"
-            id="floatingPassword"
+            id="passwordInput"
             placeholder="Password"
           />
         </div>
-        <div className="mb-3 form-check">
+        {/* <div className="mb-3 form-check">
           <input
             type="checkbox"
             className="form-check-input"
@@ -57,7 +58,7 @@ const RegisterPage = () => {
           <label className="form-check-label" htmlFor="exampleCheck1">
             I accept the Terms of Use and Privacy Policy
           </label>
-        </div>
+        </div> */}
         <button
           type="button"
           className="btn btn-primary"

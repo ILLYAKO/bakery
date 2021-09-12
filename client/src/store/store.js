@@ -4,7 +4,7 @@ import axios from "axios";
 import { API_URL } from "../http";
 
 export default class Store {
-  user={};
+  user = {};
   isAuth = false;
   isLoading = false;
 
@@ -31,7 +31,7 @@ export default class Store {
       this.setAuth(true);
       this.setUser(response.data.user);
     } catch (e) {
-      console.log(e.response?.data?.message);
+      console.log("Registration server error: ", e.response?.data?.message);
     }
   }
 
@@ -42,7 +42,7 @@ export default class Store {
       this.setAuth(true);
       this.setUser(response.data.user);
     } catch (e) {
-      console.log(e.response?.data?.message);
+      console.log("Login server error: ", e.response?.data?.message);
     }
   }
 
@@ -53,7 +53,7 @@ export default class Store {
       this.setAuth(false);
       this.setUser({});
     } catch (e) {
-      console.log(e.response?.data?.message);
+      console.log("Logout server error: ", e.response?.data?.message);
     }
   }
 
@@ -67,7 +67,7 @@ export default class Store {
       await this.setAuth(true);
       await this.setUser(response.data.user);
     } catch (e) {
-      console.log(e.response?.data?.messge);
+      console.log("checkAuth server error: ", e.response?.data?.messge);
     } finally {
       this.setLoading(false);
     }

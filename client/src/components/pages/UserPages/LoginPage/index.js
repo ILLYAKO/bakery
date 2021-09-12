@@ -26,9 +26,7 @@ const LoginPage = () => {
           />
         </div>
 
-        <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
-
-        <div className="form-floating">
+        <h1 className="h3 mb-3 fw-normal">Please login</h1>        
           <label htmlFor="floatingInput">Email address</label>
           <input
             onChange={(e) => setEmail(e.target.value)}
@@ -39,8 +37,8 @@ const LoginPage = () => {
             placeholder="name@example.com"
             aria-describedby="emailHelp"
           />
-        </div>
-        <div className="form-floating">
+        
+        
           <label htmlFor="loginPassword">Password</label>
           <input
             onChange={(e) => setPassword(e.target.value)}
@@ -50,7 +48,7 @@ const LoginPage = () => {
             id="loginPassword"
             placeholder="Password"
           />
-        </div>
+       
 
         <div className="checkbox mb-3">
           <label>

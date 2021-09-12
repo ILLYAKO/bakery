@@ -2,7 +2,19 @@ import React from "react";
 
 const LandingPage = () => {
   return (
-    <div className="d-flex align-items-center h-100">
+    <div
+      className="d-flex align-items-center h-100"
+      style={{
+        backgroundImage:
+          "url(" +
+          // require("../../../../assets/images/croissant-background.jpg").default.toString() +
+          require("../../../assets/images/croissant-background.jpg").default.toString() +
+          ")",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="container text-center">
         <h1>Wonderful Bakery.</h1>
         <p className="lead">
@@ -10,10 +22,10 @@ const LandingPage = () => {
         </p>
         <p className="lead">
           <a
-            href="/"
-            className="btn btn-lg btn-secondary fw-bold border-white bg-white"
+            href="/home"
+            className="btn btn-lg fw-bold"
           >
-            Learn more
+            Try me!
           </a>
         </p>
       </div>
