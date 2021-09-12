@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <React.Fragment>
-      <div className="container-fluid">
+      <div className="container-fluid pt-1 navbar-light bg-light">
         <div className="row">
           <div className="col-2">
             <h5>Bakery</h5>
@@ -35,7 +35,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
           <div className="col-2">
             <h5>Products</h5>
             <ul className="nav flex-column">
@@ -66,7 +65,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
           <div className="col-2">
             <h5>Media</h5>
             <ul className="nav flex-column">
@@ -97,7 +95,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
           <div className="col-4 offset-1">
             <form>
               <h5>Subscribe to our newsletter</h5>
@@ -119,9 +116,8 @@ const Footer = () => {
             </form>
           </div>
         </div>
-
-        <div className="d-flex justify-content-between py-4 my-4 border-top">
-          <p>&copy; 2021 Illya, Inc. All rights reserved.</p>
+        <div className="d-flex justify-content-center align-items-center border-top">
+          <span>&copy; 2021 Illya, Inc. All rights reserved.</span>
           <ul className="list-unstyled d-flex">
             <li className="ms-3">
               <a className="link-dark" href="/">

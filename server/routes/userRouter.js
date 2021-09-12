@@ -16,8 +16,4 @@ router.get("/activate/:link", UserController.activate);
 router.get("/refresh", UserController.refresh);
 router.get("/users", authMiddleware, UserController.getUsers);
 
-// router.use("/", (req, res) => {
-//   res.status(200).json({ message: "The USER is working!" });
-// });
-
 module.exports = router;

@@ -18,11 +18,6 @@ npm init
     "dev": "nodemon index.js",
 }
 
-1:06:39
-
-
-
-
 
 // client 
  npx create-react-app client
@@ -42,3 +37,11 @@ body,
 npm install react-router-dom
 
 // created test
+
+//
+npm i axios
+
+npm i mobx // ?????
+
+1:34:00
+1:44:25

@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { observer } from "mobx-react-lite";
+import { Context } from "../../../..";
 import "./style.css";
 
 const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { store } = useContext(Context);
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    store.login(email, password);
+  };
+
   return (
     <div className="container form-signin">
       <form>
@@ -18,22 +29,27 @@ const LoginPage = () => {
         <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
         <div className="form-floating">
+          <label htmlFor="floatingInput">Email address</label>
           <input
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
             type="email"
             className="form-control"
             id="floatingInput"
             placeholder="name@example.com"
+            aria-describedby="emailHelp"
           />
-          <label for="floatingInput">Email address</label>
         </div>
         <div className="form-floating">
+          <label htmlFor="loginPassword">Password</label>
           <input
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
             type="password"
             className="form-control"
-            id="floatingPassword"
+            id="loginPassword"
             placeholder="Password"
           />
-          <label for="floatingPassword">Password</label>
         </div>
 
         <div className="checkbox mb-3">
@@ -41,12 +57,16 @@ const LoginPage = () => {
             <input type="checkbox" value="remember-me" /> Remember me
           </label>
         </div>
-        <button className="w-100 btn btn-lg btn-primary" type="submit">
-          Sign in
+        <button
+          className="w-100 btn btn-lg btn-primary"
+          type="button"
+          onClick={onSubmitHandler}
+        >
+          Login
         </button>
       </form>
     </div>
   );
 };
 
-export default LoginPage;
+export default observer(LoginPage);

@@ -3,15 +3,15 @@ import React from "react";
 const LandingPage = () => {
   return (
     <div className="d-flex align-items-center h-100">
-      <div class="container text-center">
+      <div className="container text-center">
         <h1>Wonderful Bakery.</h1>
-        <p class="lead">
+        <p className="lead">
           our shop has the most delicious cakes and cookies
         </p>
-        <p class="lead">
+        <p className="lead">
           <a
-            href="#"
-            class="btn btn-lg btn-secondary fw-bold border-white bg-white"
+            href="/"
+            className="btn btn-lg btn-secondary fw-bold border-white bg-white"
           >
             Learn more
           </a>

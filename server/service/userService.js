@@ -16,24 +16,18 @@ class UserService {
     }
     const hashPassword = await bcrypt.hash(password, 3);
     const activationLink = uuid.v4();
-    console.log("-->activationLink", activationLink);
-
     const user = await UserModel.create({
       email,
       password: hashPassword,
       activationLink,
     });
-
     await mailService.sendActivationMaiil(
       email,
       `${process.env.API_URL}/api/users/activate/${activationLink}`
     );
-
-    const userDto = new UserDto(user); // id, email, isActivated
-
+    const userDto = new UserDto(user);
     const tokens = tokenService.generateTokens({ ...userDto });
     await tokenService.saveToken(userDto.id, tokens.refreshToken);
-
     return { ...tokens, user: userDto };
   }
 
@@ -53,11 +47,9 @@ class UserService {
     if (!isPassEquals) {
       throw ApiError.BadRequest("Incorect password");
     }
-    const userDto = new UserDto(user); // id, email, isActivated
-
+    const userDto = new UserDto(user);
     const tokens = tokenService.generateTokens({ ...userDto });
     await tokenService.saveToken(userDto.id, tokens.refreshToken);
-
     return { ...tokens, user: userDto };
   }
 
@@ -72,18 +64,13 @@ class UserService {
     }
     const userData = tokenService.validateRefreshToken(refreshToken);
     const tokenFromDB = await tokenService.findToken(refreshToken);
-
     if (!userData || !tokenFromDB) {
       throw ApiError.UnauthorizedError();
     }
-    // const user = await UserModel.findById(userData.id);
     const user = await UserModel.findOne({ where: { id: userData.id } });
-
-    const userDto = new UserDto(user); // id, email, isActivated
-
+    const userDto = new UserDto(user);
     const tokens = tokenService.generateTokens({ ...userDto });
     await tokenService.saveToken(userDto.id, tokens.refreshToken);
-
     return { ...tokens, user: userDto };
   }
 

@@ -14,10 +14,10 @@ const PiesPages = () => {
                 short so folks don’t simply skip over it entirely.
               </p>
               <p>
-                <a href="#" class="btn btn-primary my-2">
+                <a href="/" class="btn btn-primary my-2">
                   Main call to action
                 </a>
-                <a href="#" class="btn btn-secondary my-2">
+                <a href="/" class="btn btn-secondary my-2">
                   Secondary action
                 </a>
               </p>

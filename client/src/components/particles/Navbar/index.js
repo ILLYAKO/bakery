@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { observer } from "mobx-react-lite";
+import { Context } from "../../..";
 
 const Navbar = () => {
+  const { store } = useContext(Context);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light fixed-top bg-light">
       <div className="container-fluid">
@@ -25,11 +29,15 @@ const Navbar = () => {
                 Home
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link " href="  /user/dashborad">
-                Dashboard
-              </a>
-            </li>
+            {store.isAuth ? (
+              <li className="nav-item">
+                <a className="nav-link " href="  /user/dashborad">
+                  Dashboard
+                </a>
+              </li>
+            ) : (
+              ""
+            )}
             <li className="nav-item">
               <a className="nav-link" href="/product/album">
                 Album
@@ -62,14 +70,6 @@ const Navbar = () => {
                     Cookies
                   </a>
                 </li>
-                {/* <li>
-                  <hr className="dropdown-divider" />
-                </li> */}
-                {/* <li>
-                  <a className="dropdown-item" href="/home">
-                    Something else here
-                  </a>
-                </li> */}
               </ul>
             </li>
             <li className="nav-item">
@@ -77,34 +77,38 @@ const Navbar = () => {
                 About
               </a>
             </li>
-            {/* <li className="nav-item">
-              <a
-                className="nav-link disabled"
-                href="/home"
-                tabIndex="-1"
-                aria-disabled="true"
-              >
-                Disabled
-              </a>
-            </li> */}
           </ul>
-          {/* <div>Login</div> */}
           <ul className="navbar-nav me-r mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link" href="/user/register">
-                Register
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/user/login">
-                Login
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/user/logout">
-                Logout
-              </a>
-            </li>
+            {store.isAuth ? (
+              <>
+                <h3>Hello User: {store.user.email}</h3>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    role="button"
+                    href='/'
+                    onClick={() => {
+                      store.logout();
+                    }}
+                  >
+                    Logout
+                  </a>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <a className="nav-link" href="/user/register">
+                    Register
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/user/login">
+                    Login
+                  </a>
+                </li>
+              </>
+            )}
           </ul>
           <form className="d-flex">
             <input
@@ -135,4 +139,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default observer(Navbar);

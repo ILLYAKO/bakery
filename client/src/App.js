@@ -1,18 +1,19 @@
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.js";
+import React, { useEffect, useContext } from "react";
+import { observer } from "mobx-react-lite";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect /* Link */,
+  Redirect,
 } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.js";
 
 import "./App.css";
 import Footer from "./components/particles/Footer";
 import Navbar from "./components/particles/Navbar";
 import LandingPage from "./components/pages/LandingPage";
 import HomePage from "./components/pages/HomePage";
-
 import LoginPage from "./components/pages/UserPages/LoginPage";
 import RegisterPage from "./components/pages/UserPages/RegisterPage/";
 import AlbumPage from "./components/pages/ProductPages/AlbumPage";
@@ -21,17 +22,24 @@ import PiesPages from "./components/pages/ProductPages/PiesPages";
 import AboutPage from "./components/pages/AboutPage";
 import CartPage from "./components/pages/CartPage";
 import DashBoard from "./components/pages/DashBoard";
-
-
+import { Context } from "./index";
 
 const App = () => {
+  const { store } = useContext(Context);
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      store.checkAuth();
+    }
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <Router>
       <div className="d-flex flex-column h-100">
         <header className="mb-5">
           <Navbar></Navbar>
         </header>
-        {/* <main > */}
         <Switch>
           <Route exact path="/">
             <LandingPage></LandingPage>
@@ -71,13 +79,11 @@ const App = () => {
           </Route>
           <Route render={() => <h1>404: page not found</h1>}></Route>
         </Switch>
-        {/* </main> */}
-
-        <footer className="footer mt-auto py-5">
+        <footer className="footer mt-auto">
           <Footer></Footer>
         </footer>
       </div>
     </Router>
   );
 };
-export default App;
+export default observer(App);
