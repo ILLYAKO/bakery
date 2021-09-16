@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { observer } from "mobx-react-lite";
+import { useHistory } from "react-router-dom";
 import { Context } from "../../../..";
 import "./style.css";
 
@@ -7,10 +8,15 @@ const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { store } = useContext(Context);
+  const history = useHistory();
 
-  const onSubmitHandler = (e) => {
+
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
-    store.registration(email, password);
+   await store.registration(email, password);
+       if (store.isAuth) {
+         history.push("/");
+       }
   };
 
   return (

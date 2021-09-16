@@ -1,32 +1,26 @@
-import React from 'react'
+import React from "react";
 
-const HeaderOfAlbum = () => {
-    return (
-      <React.Fragment>
-        <section class="py-5 text-center container">
-          
-
-          <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-              <h1 class="fw-light">Album example</h1>
-              <p class="lead text-muted">
-                Something short and leading about the collection below—its
-                contents, the creator, etc. Make it short and sweet, but not too
-                short so folks don’t simply skip over it entirely.
-              </p>
-              <p>
-                <a href="/" class="btn btn-primary my-2">
-                  Main call to action
-                </a>
-                <a href="/" class="btn btn-secondary my-2">
-                  Secondary action
-                </a>
-              </p>
-            </div>
+const HeaderOfAlbum = ({ title, description }) => {
+  return (
+    <React.Fragment>
+      <section className="py-5 text-center container">
+        <div className="row py-lg-5">
+          <div className="col-lg-6 col-md-8 mx-auto">
+            <h1 className="fw-light">{title}</h1>
+            <p className="lead text-muted">{description}</p>
+            <p>
+              <a href="/home" className="btn btn-primary my-2">
+                Try our products
+              </a>
+              <a href="/about" className="btn btn-secondary my-2">
+                About us
+              </a>
+            </p>
           </div>
-        </section>
-      </React.Fragment>
-    );
-}
+        </div>
+      </section>
+    </React.Fragment>
+  );
+};
 
-export default HeaderOfAlbum
+export default HeaderOfAlbum;

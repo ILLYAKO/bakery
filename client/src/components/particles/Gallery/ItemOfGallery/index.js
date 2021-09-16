@@ -1,12 +1,14 @@
 import React from "react";
+import "./style.css";
 
 const ItemOfGallery = ({ title = "Cookies", img }) => {
   return (
     <div className="col">
       <div className="card shadow-sm">
         <img
-          className="bd-placeholder-img card-img-tope w-100"
-          src={require("../../../../assets/images/" + img).default.toString()}
+          className="bd-placeholder-img card-img-top w-100"
+          // src={require("../../../../assets/images/" + img).default.toString()}
+          src={img}
           alt={title}
         />
         <div className="card-body">

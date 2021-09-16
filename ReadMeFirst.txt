@@ -12,6 +12,7 @@ npm init
  npm install nodemailer
  npm install express-validator
  npm install --save-dev nodemon
+ npm install cloudinary
 // package.json 
 "script":{
         "start": "node index.js",
@@ -44,6 +45,9 @@ npm i axios
 npm i mobx // ?????
 
 images from https://unsplash.com/photos/dCKQMAzy8II
+
+npm i multer
+// npm i multer@2.0.0-rc.1  ???
 
 1:34:00
 1:44:25

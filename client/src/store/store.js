@@ -1,5 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import AuthService from "../service/AuthService";
+import ProductService from "../service/ProductService";
+
 import axios from "axios";
 import { API_URL } from "../http";
 
@@ -70,6 +72,15 @@ export default class Store {
       console.log("checkAuth server error: ", e.response?.data?.messge);
     } finally {
       this.setLoading(false);
+    }
+  }
+
+  async uploadProduct(data) {
+    try {
+      // eslint-disable-next-line
+      const response = await ProductService.uploadProduct(data);
+    } catch (e) {
+      console.log("UploadProduct server error: ", e.response?.data?.message);
     }
   }
 }

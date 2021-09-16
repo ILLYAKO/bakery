@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 const Feature = ({ title, text, img }) => {
   return (
@@ -13,7 +14,8 @@ const Feature = ({ title, text, img }) => {
       <div className="col-md-5">
         <img
           className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto w-100"
-          src={require("../../../../assets/images/" + img).default.toString()}
+          // src={require("../../../../assets/images/" + img).default.toString()}
+          src={img}
           alt={title}
         />
       </div>

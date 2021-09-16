@@ -39,8 +39,8 @@ const Navbar = () => {
               ""
             )}
             <li className="nav-item">
-              <a className="nav-link" href="/product/album">
-                Album
+              <a className="nav-link" href="/product/baking">
+                Baking
               </a>
             </li>
             <li className="nav-item dropdown">
@@ -80,21 +80,18 @@ const Navbar = () => {
           </ul>
           <ul className="navbar-nav me-r mb-2 mb-lg-0">
             {store.isAuth ? (
-              <>
-                <h3>Hello User: {store.user.email}</h3>
-                <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    role="button"
-                    href='/'
-                    onClick={() => {
-                      store.logout();
-                    }}
-                  >
-                    Logout
-                  </a>
-                </li>
-              </>
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  role="button"
+                  href="/"
+                  onClick={() => {
+                    store.logout();
+                  }}
+                >
+                  Logout
+                </a>
+              </li>
             ) : (
               <>
                 <li className="nav-item">
@@ -121,7 +118,7 @@ const Navbar = () => {
               Search
             </button>
           </form>
-          <a href="/cart" className="text-decoration-none">
+          <a href="/cart" className="text-decoration-none mx-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

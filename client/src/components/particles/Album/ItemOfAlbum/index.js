@@ -1,53 +1,53 @@
 import React from "react";
 import CarouselAlbum from "../../CarouselAlbum";
 
-const ItemOfAlbum = () => {
+const ItemOfAlbum = ({img}) => {
   return (
-    <div class="col">
+    <div className="col">
       <div
-        class="card shadow-sm"
+        className="card shadow-sm"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
         <img
           className="bd-placeholder-img card-img-tope w-100"
-          src={require("../../../../assets/images/cookies.png").default.toString()}
+          // src={require("../../../../assets/images/cookies.png").default.toString()}
+          src={img}
           alt={"cookies"}
         />
         <div
-          class="modal fade"
+          className="modal fade"
           id="exampleModal"
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
                   Modal title
                 </h5>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 ...
                 <CarouselAlbum></CarouselAlbum>
-
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Close
                 </button>
-                <button type="button" class="btn btn-primary">
+                <button type="button" className="btn btn-primary">
                   Save changes
                 </button>
               </div>

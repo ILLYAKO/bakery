@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { observer } from "mobx-react-lite";
+import { useHistory } from "react-router-dom";
 import { Context } from "../../../..";
 import "./style.css";
 
@@ -7,10 +8,14 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { store } = useContext(Context);
+  const history = useHistory();
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
-    store.login(email, password);
+    await store.login(email, password);
+    if (store.isAuth) {
+      history.push("/");
+    }
   };
 
   return (
@@ -26,29 +31,27 @@ const LoginPage = () => {
           />
         </div>
 
-        <h1 className="h3 mb-3 fw-normal">Please login</h1>        
-          <label htmlFor="floatingInput">Email address</label>
-          <input
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            type="email"
-            className="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-            aria-describedby="emailHelp"
-          />
-        
-        
-          <label htmlFor="loginPassword">Password</label>
-          <input
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            type="password"
-            className="form-control"
-            id="loginPassword"
-            placeholder="Password"
-          />
-       
+        <h1 className="h3 mb-3 fw-normal">Please login</h1>
+        <label htmlFor="floatingInput">Email address</label>
+        <input
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          type="email"
+          className="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+          aria-describedby="emailHelp"
+        />
+
+        <label htmlFor="loginPassword">Password</label>
+        <input
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          type="password"
+          className="form-control"
+          id="loginPassword"
+          placeholder="Password"
+        />
 
         <div className="checkbox mb-3">
           <label>

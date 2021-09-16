@@ -16,7 +16,8 @@ import LandingPage from "./components/pages/LandingPage";
 import HomePage from "./components/pages/HomePage";
 import LoginPage from "./components/pages/UserPages/LoginPage";
 import RegisterPage from "./components/pages/UserPages/RegisterPage/";
-import AlbumPage from "./components/pages/ProductPages/AlbumPage";
+import BakingPage from "./components/pages/ProductPages/BakingPage";
+import CookiesPage from "./components/pages/ProductPages/CookiesPages";
 import CakesPages from "./components/pages/ProductPages/CakesPages";
 import PiesPages from "./components/pages/ProductPages/PiesPages";
 import AboutPage from "./components/pages/AboutPage";
@@ -65,8 +66,8 @@ const App = () => {
           <Route path="/user/logout">
             <Redirect to="/" />
           </Route>
-          <Route path="/product/album">
-            <AlbumPage></AlbumPage>
+          <Route path="/product/baking">
+            <BakingPage></BakingPage>
           </Route>
           <Route path="/product/cakes">
             <CakesPages></CakesPages>
@@ -75,7 +76,7 @@ const App = () => {
             <PiesPages></PiesPages>
           </Route>
           <Route path="/product/cookies">
-            <AlbumPage></AlbumPage>
+            <CookiesPage></CookiesPage>
           </Route>
           <Route render={() => <h1>404: page not found</h1>}></Route>
         </Switch>
