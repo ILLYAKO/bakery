@@ -13,6 +13,12 @@ const User = sequelize.define("user", {
     allowNull: false,
     required: true,
   },
+  //guest, user, moderator, admin
+  role: {
+    type: Sequelize.STRING,
+    allowNull: true,
+    required: true,
+  },
   isActivated: {
     type: Sequelize.BOOLEAN,
     allowNull: false,

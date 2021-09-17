@@ -7,7 +7,7 @@ const ItemOfGallery = ({ title = "Cookies", img }) => {
       <div className="card shadow-sm">
         <img
           className="bd-placeholder-img card-img-top w-100"
-          // src={require("../../../../assets/images/" + img).default.toString()}
+          
           src={img}
           alt={title}
         />

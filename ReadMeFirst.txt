@@ -49,5 +49,7 @@ images from https://unsplash.com/photos/dCKQMAzy8II
 npm i multer
 // npm i multer@2.0.0-rc.1  ???
 
+// src={require("../../../../assets/images/" + img).default.toString()}
+
 1:34:00
 1:44:25

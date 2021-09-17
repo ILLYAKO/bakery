@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { Context } from "../../../..";
 import Alert from "../../../particles/Alert";
 
 export default function UploadProductPage() {
-  const [name, setName] = useState();
+  const form = useRef(null);
   const [fileInputState, setFileInputState] = useState("");
   const [previewSource, setPreviewSource] = useState("");
   const [selectedFile, setSelectedFile] = useState();
@@ -27,15 +27,14 @@ export default function UploadProductPage() {
   };
 
   const handleSubmitFile = (e) => {
+    setSuccessMsg("");
     e.preventDefault();
     if (!selectedFile) return;
     const reader = new FileReader();
     reader.readAsDataURL(selectedFile);
-    let data = new FormData();
-    data.append("name", name);
-    data.append("file", selectedFile);
+    const data = new FormData(form.current);
     store.uploadProduct(data);
-    setSuccessMsg("Image uploaded successfully");
+    setSuccessMsg("Product added successfully!");
     setFileInputState("");
     setPreviewSource("");
     reader.onerror = () => {
@@ -45,36 +44,103 @@ export default function UploadProductPage() {
   };
   return (
     <div>
-      <h1 className="title">Upload an Image</h1>
+      <h3 className="title">Upload Product</h3>
       <Alert msg={errMsg} type="danger" />
       <Alert msg={successMsg} type="success" />
-      <form onSubmit={handleSubmitFile} className="form">
-        <div>
-          <label htmlFor="nameInput">Name</label>
-          <input
-            type="text"
-            id="nameInput"
-            onChange={(event) => {
-              const { value } = event.target;
-              setName(value);
-            }}
-          />
+      <form
+        ref={form}
+        onSubmit={handleSubmitFile}
+        className="form"
+        id="productform"
+      >
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button className="btn btn-primary" type="submit">
+              Submit
+            </button>
+          </div>
         </div>
-        <div>
-          <label htmlFor="fileInput">File</label>
-          <input
-            id="fileInput"
-            type="file"
-            name="image"
-            onChange={handleFileInputChange}
-            value={fileInputState}
-            className="form-input"
-          />
+        <div class="form-group row">
+          <label htmlFor="segmentInput" class="col-sm-2 col-form-label">
+            Baking Segment
+          </label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              name="segment"
+              id="segmentInput"
+              placeholder="Choose one from the list: bread, cakes,cookies, pies."
+            />
+            <div id="segmentHelp" className="form-text">
+              List: bread, cakes, cookies, pies.
+            </div>
+          </div>
         </div>
-
-        <button className="btn btn-primary" type="submit">
-          Submit
-        </button>
+        <div class="form-group row">
+          <label htmlFor="nameInput" class="col-sm-2 col-form-label">
+            Name
+          </label>
+          <div class="col-sm-10">
+            <input type="text" name="name" id="nameInput" placeholder="Name" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label htmlFor="priceInput" class="col-sm-2 col-form-label">
+            Price, CAD
+          </label>
+          <div class="col-sm-10">
+            <input
+              type="number"
+              name="price"
+              min="0"
+              step="0.01"
+              id="priceInput"
+              placeholder="Price"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label htmlFor="vendorInput" class="col-sm-2 col-form-label">
+            Vendor
+          </label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              name="vendor"
+              id="vendorInput"
+              placeholder="Vendor"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label htmlFor="descriptionInput" class="col-sm-2 col-form-label">
+            Description
+          </label>
+          <div class="col-sm-10">
+            <textarea
+              rows="4"
+              cols="50"
+              name="description"
+              form="productform"
+              placeholder="Enter description here..."
+            ></textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label htmlFor="fileInput" class="col-sm-2 col-form-label">
+            File
+          </label>
+          <div class="col-sm-10">
+            <input
+              id="fileInput"
+              type="file"
+              name="file"
+              onChange={handleFileInputChange}
+              value={fileInputState}
+              className="form-input"
+            />
+          </div>
+        </div>
       </form>
       {previewSource && (
         <img src={previewSource} alt="chosen" style={{ height: "300px" }} />

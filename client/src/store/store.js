@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import AuthService from "../service/AuthService";
 import ProductService from "../service/ProductService";
+import { toJS } from "mobx";
 
 import axios from "axios";
 import { API_URL } from "../http";
@@ -9,6 +10,7 @@ export default class Store {
   user = {};
   isAuth = false;
   isLoading = false;
+  products=[];
 
   constructor() {
     makeAutoObservable(this);
@@ -24,6 +26,10 @@ export default class Store {
 
   setLoading(bool) {
     this.isLoading = bool;
+  }
+
+  setProducts(produstsAll) {
+    this.products = produstsAll;
   }
 
   async registration(email, password) {
@@ -62,7 +68,7 @@ export default class Store {
   async checkAuth() {
     this.setLoading(true);
     try {
-      const response = await axios.get(`${API_URL}/users/refresh`, {
+      const response = await axios.get(`${API_URL}/user/refresh`, {
         withCredentials: true,
       });
       localStorage.setItem("token", response.data.accessToken);
@@ -81,6 +87,16 @@ export default class Store {
       const response = await ProductService.uploadProduct(data);
     } catch (e) {
       console.log("UploadProduct server error: ", e.response?.data?.message);
+    }
+  }
+
+  async getAllProducts() {
+    try {
+      // eslint-disable-next-line
+      const response = await ProductService.getAllProducts();
+      await this.setProducts(response.data);
+    } catch (e) {
+      console.log("getAllProducts server error: ", e.response?.data?.message);
     }
   }
 }

@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import ItemOfGallery from "./ItemOfGallery";
+import { observer } from "mobx-react-lite";
+
+import { toJS } from "mobx";
+import { Context } from "../../..";
+
 
 const Gallery = () => {
+  const { store } = useContext(Context);
   return (
     <div className="gallery py-5 bg-light">
       <div className="container">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <ItemOfGallery
+          {store.products && store.products.map((product) => {
+            return (
+              <ItemOfGallery
+                key={product.dataValues.id}
+                img={product.imageUrl}
+                title={product.dataValues.title}
+              ></ItemOfGallery>
+            );
+          })}
+
+          {/* <ItemOfGallery
             img={
               "https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_288,w_412/v1631589276/bakery/products/cookies/3af09682-e4c3-4bce-a231-78114eb1737f.jpg"
             }
@@ -60,11 +76,13 @@ const Gallery = () => {
               "https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_288,w_412/v1631588293/bakery/products/bread/b5180b01-bdfa-4c26-a03a-6fdbaea0d614.jpg"
             }
             title={"Cheesecake"}
-          ></ItemOfGallery>
+          ></ItemOfGallery> */}
+
+          {/* ///// */}
         </div>
       </div>
     </div>
   );
 };
 
-export default Gallery;
+export default observer(Gallery);
