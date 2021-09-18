@@ -11,7 +11,6 @@ const ItemOfAlbum = ({img}) => {
       >
         <img
           className="bd-placeholder-img card-img-tope w-100"
-          // src={require("../../../../assets/images/cookies.png").default.toString()}
           src={img}
           alt={"cookies"}
         />

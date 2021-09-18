@@ -18,7 +18,6 @@ const CarouselAlbum = () => {
             aria-label="Slide 1"
           >
             <img
-              // src={require("../../../assets/images/cookies.png").default.toString()}
               src="
               https://res.cloudinary.com/dxe2wwttx/image/upload/v1631588608/bakery/products/cakes/a545a63b-f5ac-4f4b-8fc5-b6c234768806.jpg
               "

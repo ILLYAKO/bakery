@@ -1,4 +1,4 @@
-const dummyProductsDb = [
+export const dummyProductsDb = [
   {
     id: 1,
     title: "Cookies",

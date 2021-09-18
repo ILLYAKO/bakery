@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import Album from "../../../particles/Album";
 
 const CakesPages = () => {
+  // eslint-disable-next-line
   const [title, setTitle] = useState("Cake");
+  // eslint-disable-next-line
   const [description, setDescription] = useState([
     '"In general, any of a variety of breads, shortened or unshortened, usually shaped by the tin in which it is baked, or, more specifically, a sweetened bread, often rich or delicate. In the codified cuisine of France, all cakes, or gâteaux, derive from one of eight basic doughs: short pastry, flake pastry, sweet pastry, savarin, brioche, baba, chou pastry, and genoise. To these are added an infinite variety of flavouring and decorative ingredients, such as marzipan, sugar icing, spices, fruits, and cremes. The torte is a very rich cake found throughout Europe, often of numerous thin layers and containing nuts, fruit, creme, and chocolate in combination."',
-    <br />,
+    <br key={title + 0} />,
     "( ",
-    <a href="https://www.britannica.com/topic/cake">Britannica</a>,
+    <a key={title + 1} href="https://www.britannica.com/topic/cake">
+      Britannica
+    </a>,
     " )",
   ]);
+  // eslint-disable-next-line
   const [images, setImages] = useState([
     "https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_204,w_420/v1631588587/bakery/products/cakes/a02e8d1b-2fbe-4183-8746-ebf92b09cddd.jpg",
     "https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_204,w_420/v1631588556/bakery/products/cakes/078a6b99-b183-4028-9637-972a172ac3a4.jpg",
@@ -24,7 +29,12 @@ const CakesPages = () => {
 
   return (
     <div>
-      <Album title={title} description={description} images={images}></Album>
+      <Album
+        key={title}
+        title={title}
+        description={description}
+        images={images}
+      ></Album>
     </div>
   );
 };

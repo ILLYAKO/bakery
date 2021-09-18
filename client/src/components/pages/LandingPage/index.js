@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -7,7 +8,6 @@ const LandingPage = () => {
       style={{
         backgroundImage:
           "url(" +
-          // require("../../../../assets/images/croissant-background.jpg").default.toString() +
           require("../../../assets/images/croissant-background.jpg").default.toString() +
           ")",
         backgroundPosition: "center",
@@ -21,12 +21,9 @@ const LandingPage = () => {
           our shop has the most delicious cakes and cookies
         </p>
         <p className="lead">
-          <a
-            href="/home"
-            className="btn btn-lg fw-bold"
-          >
+          <Link to="/home" className="btn btn-lg fw-bold">
             Try me!
-          </a>
+          </Link>
         </p>
       </div>
     </div>

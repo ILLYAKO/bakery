@@ -73,5 +73,20 @@ class ProductController {
       next(e);
     }
   }
+
+  async findOne(req, res, next) {
+    try {
+      const productId = req.params;
+      const product = await productService.findOne(productId);
+      if (!product) {
+        res.status(500).send({
+          message: "Some error occurred while retrieving product.",
+        });
+      }
+      res.json(product);
+    } catch (e) {
+      next(e);
+    }  
+  }
 }
 module.exports = new ProductController();

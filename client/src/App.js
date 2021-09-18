@@ -23,7 +23,9 @@ import PiesPages from "./components/pages/ProductPages/PiesPages";
 import AboutPage from "./components/pages/AboutPage";
 import CartPage from "./components/pages/CartPage";
 import DashBoard from "./components/pages/DashBoard";
+import DetailsProductPage from "./components/pages/ProductPages/DetailsProductPage"
 import { Context } from "./index";
+import ModalProduct from "./components/particles/ModalProduct";
 
 const App = () => {
   const { store } = useContext(Context);
@@ -78,8 +80,12 @@ const App = () => {
           <Route path="/product/cookies">
             <CookiesPage></CookiesPage>
           </Route>
+          <Route path="/product/details/:id">
+            <DetailsProductPage></DetailsProductPage>
+          </Route>
           <Route render={() => <h1>404: page not found</h1>}></Route>
         </Switch>
+        <ModalProduct/>
         <footer className="footer mt-auto">
           <Footer></Footer>
         </footer>

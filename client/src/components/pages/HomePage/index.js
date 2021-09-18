@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { observer } from "mobx-react-lite";
 import CarouselHomePage from "../../particles/CarouselHomePage";
 import Headings from "../../particles/Headings";
@@ -8,7 +8,6 @@ import { Context } from "../../../index";
 
 const HomePage = () => {
   const { store } = useContext(Context);
-  // const [produts, setProduts] = useState(store.products);
 
   useEffect(() => {
     store.getAllProducts();
@@ -19,7 +18,7 @@ const HomePage = () => {
     <div className="container">
       <CarouselHomePage></CarouselHomePage>
       <Headings></Headings>
-      <Album ></Album>
+      <Album key="homePage"></Album>
       <Features></Features>
     </div>
   );

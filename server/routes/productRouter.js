@@ -6,6 +6,8 @@ const router = new Router();
 /* /product  */
 router.post("/", authMiddleware, ProductController.create);
 router.get("/", ProductController.findAll);
+router.get("/:id", ProductController.findOne);
+
 
 
 module.exports = router;

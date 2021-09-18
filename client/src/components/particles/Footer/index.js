@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -9,29 +10,29 @@ const Footer = () => {
             <h5>Bakery</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
-                <a href="/home" className="nav-link p-0 text-muted">
+                <Link to="/home" className="nav-link p-0 text-muted">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item mb-2">
-                <a href="/product/baking" className="nav-link p-0 text-muted">
+                <Link to="/product/baking" className="nav-link p-0 text-muted">
                   Features
-                </a>
+                </Link>
               </li>
               <li className="nav-item mb-2">
-                <a href="/home" className="nav-link p-0 text-muted">
+                <Link to="/home" className="nav-link p-0 text-muted">
                   Pricing
-                </a>
+                </Link>
               </li>
               <li className="nav-item mb-2">
-                <a href="/home" className="nav-link p-0 text-muted">
+                <Link to="/home" className="nav-link p-0 text-muted">
                   FAQs
-                </a>
+                </Link>
               </li>
               <li className="nav-item mb-2">
-                <a href="/about" className="nav-link p-0 text-muted">
+                <Link to="/about" className="nav-link p-0 text-muted">
                   About
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -39,29 +40,29 @@ const Footer = () => {
             <h5>Products</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
-                <a href="/home" className="nav-link p-0 text-muted">
+                <Link to="/home" className="nav-link p-0 text-muted">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item mb-2">
-                <a href="/product/baking" className="nav-link p-0 text-muted">
+                <Link to="/product/baking" className="nav-link p-0 text-muted">
                   Features
-                </a>
+                </Link>
               </li>
               <li className="nav-item mb-2">
-                <a href="/home" className="nav-link p-0 text-muted">
+                <Link to="/home" className="nav-link p-0 text-muted">
                   Pricing
-                </a>
+                </Link>
               </li>
               <li className="nav-item mb-2">
-                <a href="/home" className="nav-link p-0 text-muted">
+                <Link to="/home" className="nav-link p-0 text-muted">
                   FAQs
-                </a>
+                </Link>
               </li>
               <li className="nav-item mb-2">
-                <a href="/about" className="nav-link p-0 text-muted">
+                <Link to="/about" className="nav-link p-0 text-muted">
                   About
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -69,29 +70,29 @@ const Footer = () => {
             <h5>Media</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
-                <a href="/home" className="nav-link p-0 text-muted">
+                <Link to="/home" className="nav-link p-0 text-muted">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item mb-2">
-                <a href="/product/baking" className="nav-link p-0 text-muted">
+                <Link to="/product/baking" className="nav-link p-0 text-muted">
                   Features
-                </a>
+                </Link>
               </li>
               <li className="nav-item mb-2">
-                <a href="/home" className="nav-link p-0 text-muted">
+                <Link to="/home" className="nav-link p-0 text-muted">
                   Pricing
-                </a>
+                </Link>
               </li>
               <li className="nav-item mb-2">
-                <a href="/home" className="nav-link p-0 text-muted">
+                <Link to="/home" className="nav-link p-0 text-muted">
                   FAQs
-                </a>
+                </Link>
               </li>
               <li className="nav-item mb-2">
-                <a href="/about" className="nav-link p-0 text-muted">
+                <Link to="/about" className="nav-link p-0 text-muted">
                   About
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -109,9 +110,9 @@ const Footer = () => {
                   className="form-control"
                   placeholder="Email address"
                 />
-                <button className="btn btn-primary" type="button">
+                <Link to="/about" className="btn btn-primary my-2">
                   Subscribe
-                </button>
+                </Link>
               </div>
             </form>
           </div>
@@ -120,25 +121,25 @@ const Footer = () => {
           <span>&copy; 2021 Illya, Inc. All rights reserved.</span>
           <ul className="list-unstyled d-flex">
             <li className="ms-3">
-              <a className="link-dark" href="/">
+              <Link to="/" className="link-dark">
                 <svg className="bi" width="24" height="24">
                   <use xlinkHref="#twitter" />
                 </svg>
-              </a>
+              </Link>
             </li>
             <li className="ms-3">
-              <a className="link-dark" href="/">
+              <Link to="/" className="link-dark">
                 <svg className="bi" width="24" height="24">
                   <use xlinkHref="#instagram" />
                 </svg>
-              </a>
+              </Link>
             </li>
             <li className="ms-3">
-              <a className="link-dark" href="/">
+              <Link to="/" className="link-dark" href="/">
                 <svg className="bi" width="24" height="24">
                   <use xlinkHref="#facebook" /> xlinkHref
                 </svg>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

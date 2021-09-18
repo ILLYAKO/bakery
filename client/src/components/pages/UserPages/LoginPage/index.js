@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { observer } from "mobx-react-lite";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
 import { Context } from "../../../..";
 import "./style.css";
 

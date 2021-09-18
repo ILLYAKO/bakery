@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { observer } from "mobx-react-lite";
+import { Link } from "react-router-dom";
 import { Context } from "../../..";
 
 const Navbar = () => {
@@ -8,9 +9,9 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light fixed-top bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <Link to="/" className="navbar-brand">
           Bakery
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -25,89 +26,89 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/home">
+              <Link to="/home" className="nav-link active" aria-current="page">
                 Home
-              </a>
+              </Link>
             </li>
             {store.isAuth ? (
               <li className="nav-item">
-                <a className="nav-link " href="  /user/dashborad">
+                <Link to="/user/dashborad" className="nav-link ">
                   Dashboard
-                </a>
+                </Link>
               </li>
             ) : (
               ""
             )}
             <li className="nav-item">
-              <a className="nav-link" href="/product/baking">
+              <Link to="/product/baking" className="nav-link">
                 Baking
-              </a>
+              </Link>
             </li>
             <li className="nav-item dropdown">
-              <a
+              <Link
+                to="/home"
                 className="nav-link dropdown-toggle"
-                href="/home"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Products
-              </a>
+              </Link>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a className="dropdown-item" href="/product/cakes">
+                  <Link to="/product/cakes" className="dropdown-item">
                     Cakes
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/product/pies">
+                  <Link to="/product/pies" className="dropdown-item">
                     Pies
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/product/cookies">
+                  <Link to="/product/cookies" className="dropdown-item">
                     Cookies
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/about">
+              <Link to="/about" className="nav-link">
                 About
-              </a>
+              </Link>
             </li>
           </ul>
           <ul className="navbar-nav me-r mb-2 mb-lg-0">
             {store.isAuth ? (
               <li className="nav-item">
-                <a
+                <Link
+                  to="/"
                   className="nav-link"
                   role="button"
-                  href="/"
                   onClick={() => {
                     store.logout();
                   }}
                 >
                   Logout
-                </a>
+                </Link>
               </li>
             ) : (
               <>
                 <li className="nav-item">
-                  <a className="nav-link" href="/user/register">
+                  <Link to="/user/register" className="nav-link">
                     Register
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/user/login">
+                  <Link to="/user/login" className="nav-link">
                     Login
-                  </a>
+                  </Link>
                 </li>
               </>
             )}
           </ul>
-          <form className="d-flex">
+          {/* <form className="d-flex">
             <input
               className="form-control me-2"
               type="search"
@@ -117,8 +118,8 @@ const Navbar = () => {
             <button className="btn btn-outline-success" type="submit">
               Search
             </button>
-          </form>
-          <a href="/cart" className="text-decoration-none mx-2">
+          </form> */}
+          <Link to="/cart" className="text-decoration-none mx-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -129,7 +130,7 @@ const Navbar = () => {
             >
               <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

@@ -16,4 +16,13 @@ export default class ProductService {
       })
       .catch((err) => console.log("getAllProducts-err:", err));
   }
+
+  static async findOne(id) {
+    return $api
+      .get(`/product/${id}`)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => console.log("getAllProducts-err:", err));
+  }
 }

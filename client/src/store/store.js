@@ -1,16 +1,22 @@
 import { makeAutoObservable } from "mobx";
+import axios from "axios";
 import AuthService from "../service/AuthService";
 import ProductService from "../service/ProductService";
-import { toJS } from "mobx";
-
-import axios from "axios";
 import { API_URL } from "../http";
+// import { dummyProductsDb } from "./dummyDb";
 
 export default class Store {
   user = {};
   isAuth = false;
   isLoading = false;
-  products=[];
+  products = [];
+  detailProduct = {};
+  cart = [];
+  modalOpen = false;
+  modalProduct = {};
+  cartSubTotal = 0;
+  cartTax = 0;
+  cartTotal = 0;
 
   constructor() {
     makeAutoObservable(this);
@@ -28,8 +34,28 @@ export default class Store {
     this.isLoading = bool;
   }
 
-  setProducts(produstsAll) {
-    this.products = produstsAll;
+  setProducts(productsAll) {
+    this.products = productsAll;
+  }
+
+  setDetailProduct(productOne) {
+    this.detailProduct = productOne;
+  }
+
+  setModalOpen(bool) {
+    this.modalOpen = bool;
+  }
+
+  setModalProduct(productI) {
+    this.modalProduct = productI;
+  }
+
+  setCart(cart) {
+    console.log("setCart", cart);
+    this.cart = cart;
+  }
+  setProductsInCart(productsIn) {
+    this.productsInCart = productsIn;
   }
 
   async registration(email, password) {
@@ -92,11 +118,80 @@ export default class Store {
 
   async getAllProducts() {
     try {
-      // eslint-disable-next-line
       const response = await ProductService.getAllProducts();
       await this.setProducts(response.data);
     } catch (e) {
       console.log("getAllProducts server error: ", e.response?.data?.message);
     }
+  }
+  // ---------------
+  async getItem(id) {
+    try {
+      const response = await ProductService.findOne(id);
+      await this.setDetailProduct(response.data);
+    } catch (e) {
+      console.log("getOneProduct server error: ", e.response?.data?.message);
+    }
+  }
+
+  async handleDetail(id) {
+    await this.getItem(id);
+  }
+
+  async addToCart(id) {
+    console.log(`hello from add To Cart. Id is ${id}`);
+    // // let tempProducts = [...this.state.products];
+    await this.getItem(id);
+    let tempCart = [...this.cart];
+    console.log("-->Store-addToCart-tempCart-0:", tempCart);
+    console.log("-->Store-addToCart-this.detailProduct:", this.detailProduct);
+    await tempCart.push(this.detailProduct);
+    console.log("-->Store-addToCart-tempCart-1:", tempCart);
+    await this.setCart(tempCart);
+    console.log("-->Store-addToCart-cart.L:", this.cart.length);
+
+    //
+    //
+    // const index = tempProducts.indexOf(this.getItem(id));
+    // const product = tempProducts[index];
+    // product.inCart = true;
+    // product.count = 1;
+    // const price = product.price;
+    // product.total = price;
+    // this.setState(
+    //   () => {
+    //     return {
+    //       products: tempProducts,
+    //       cart: [...this.state.cart, product],
+    //     };
+    //   },
+    //   () => {
+    //     this.addTotals();
+    //   }
+    // );
+  }
+
+  async openModal(id) {
+    console.log(`hello from openModal. Id is ${id}`);
+    this.setModalOpen(true);
+  }
+
+  async closeModal() {
+    console.log(`hello from closeModal.`);
+    this.setModalOpen(false);
+  }
+
+  increment(id) {
+    console.log("Increment", id);
+  }
+  decrement(id) {
+    console.log("Decrement", id);
+  }
+  removeItem(id) {
+    console.log("Remove Item", id);
+  }
+
+  clearCart() {
+    console.log("Clear Cart");
   }
 }

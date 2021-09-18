@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import Album from "../../../particles/Album";
 
 const BakingPage = () => {
+  // eslint-disable-next-line
   const [title, setTitle] = useState("Cookie");
+  // eslint-disable-next-line
   const [description, setDescription] = useState([
     '"Cookie, (from Dutch koekje, diminutive of koek, “cake”), primarily in the United States, any of various small sweet cakes, either flat or slightly raised, cut from rolled dough, dropped from a spoon, cut into pieces after baking, or curled with a special iron. In Scotland the term cookie denotes a small, plain bun."',
-    <br />,
+    <br key={title + 0} />,
     "( ",
-    <a href="https://www.britannica.com/topic/baking">Britannica</a>,
+    <a key={title + 1} href="https://www.britannica.com/topic/baking">
+      Britannica
+    </a>,
     " )",
   ]);
+  // eslint-disable-next-line
   const [images, setImages] = useState([
     "https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_204,w_420/v1631589276/bakery/products/cookies/3af09682-e4c3-4bce-a231-78114eb1737f.jpg",
     "https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_204,w_420/v1631589529/bakery/products/cookies/0da77987-6335-46b7-94a9-f185912069bc.jpg",
@@ -24,7 +29,12 @@ const BakingPage = () => {
 
   return (
     <div>
-      <Album title={title} description={description} images={images}></Album>
+      <Album
+        key={title}
+        title={title}
+        description={description}
+        images={images}
+      ></Album>
     </div>
   );
 };

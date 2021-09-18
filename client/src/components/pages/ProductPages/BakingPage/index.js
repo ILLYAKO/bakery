@@ -2,11 +2,19 @@ import React, { useState } from "react";
 import Album from "../../../particles/Album";
 
 const BakingPage = () => {
+  // eslint-disable-next-line
   const [title, setTitle] = useState("Baking process");
-  const [description, setDescription] = useState(['"Baking, process of cooking by dry heat, especially in some kind of oven. It is probably the oldest cooking method. Bakery products, which includebread, rolls, cookies, pies, pastries, and muffins, are usually prepared from flour or meal derived from some form of grain. Bread, a common staple in prehistoric times, provides many nutrients in the human diet."',<br/>,'( ',
-    <a href="https://www.britannica.com/topic/baking">Britannica</a>,
-    ' )',
+  // eslint-disable-next-line
+  const [description, setDescription] = useState([
+    '"Baking, process of cooking by dry heat, especially in some kind of oven. It is probably the oldest cooking method. Bakery products, which includebread, rolls, cookies, pies, pastries, and muffins, are usually prepared from flour or meal derived from some form of grain. Bread, a common staple in prehistoric times, provides many nutrients in the human diet."',
+    <br key={title + 0} />,
+    "( ",
+    <a key={title + 1} href="https://www.britannica.com/topic/baking">
+      Britannica
+    </a>,
+    " )",
   ]);
+  // eslint-disable-next-line
   const [images, setImages] = useState([
     "https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_204,w_420/v1631675876/bakery/baking/d3532cac-bafd-45ca-94f4-bea36039d8f5.jpg",
     "https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_204,w_420/v1631675902/bakery/baking/d6f09ef3-f42f-41d6-b89c-4e4fef70328b.jpg",
@@ -21,7 +29,12 @@ const BakingPage = () => {
 
   return (
     <div>
-      <Album title={title} description={description} images={images}></Album>
+      <Album
+        key={title}
+        title={title}
+        description={description}
+        images={images}
+      ></Album>
     </div>
   );
 };

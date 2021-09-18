@@ -18,7 +18,6 @@ const Features = () => {
         text={
           "Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place."
         }
-        // img={"cheesecake.png"}
         img="https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_288,w_526/v1631589664/bakery/products/pies/9b815a3c-78c1-43ce-b5c9-40d1575f1aeb.jpg"
       ></Feature>
       <hr className="featurette-divider"></hr>
