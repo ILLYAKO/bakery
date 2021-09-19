@@ -1,12 +1,15 @@
 {
   "name": "bakery",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Bakery",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd client && npm start"
+    "start": "node server",
+    "build": "cd react-ui/ && npm install && npm run build"
   },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ILLYAKO/bakery.git"
