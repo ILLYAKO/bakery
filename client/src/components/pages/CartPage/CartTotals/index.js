@@ -24,15 +24,15 @@ const CartTotals = (history) => {
             </Link>
             <h5>
               <span className="text-title">subtotal :</span>
-              <strong>$ {cartSubTotal}</strong>
+              <strong>$ {parseFloat(cartSubTotal).toFixed(2)}</strong>
             </h5>
             <h5>
               <span className="text-title">tax :</span>
-              <strong>$ {cartTax}</strong>
+              <strong>$ {parseFloat(cartTax).toFixed(2)}</strong>
             </h5>
             <h5>
               <span className="text-title">total :</span>
-              <strong>$ {cartTotal}</strong>
+              <strong>$ {parseFloat(cartTotal).toFixed(2)}</strong>
             </h5>
             {/* <PayPalButton
               total={cartTotal}

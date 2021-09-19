@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { Context } from "../../../../";
 
-
 const CartItem = ({ item }) => {
   const { store } = useContext(Context);
-  const {imageUrl} = item;
-  const { id, title, productPrice, total = 0, count = 1 } =item.dataValues;
+  const { imageUrl, quantityInCart, productTotal } = item;
+  const { id, title, productPrice } = item.dataValues;
   const { increment, decrement, removeItem } = store;
   return (
     <div className="row my-2 text-capitalize text-center">
@@ -38,7 +37,7 @@ const CartItem = ({ item }) => {
           >
             -
           </span>
-          <span className="btn btn-black mx-1">{count}</span>
+          <span className="btn btn-black mx-1">{quantityInCart}</span>
           <span
             className="btn btn-black mx-1"
             onClick={() => {
@@ -50,20 +49,28 @@ const CartItem = ({ item }) => {
         </div>
       </div>
       <div className="col-10 mx-auto col-lg-2">
-        <div
+        <span
+          className="btn btn-black mx-1"
+          onClick={() => {
+            removeItem(id);
+          }}
+        >
+          remove
+        </span>
+        {/* <div
           className="cart-icon"
           onClick={() => {
             removeItem(id);
           }}
         >
           <i className="fas fa-trash"></i>
-        </div>
+        </div> */}
       </div>
       <div className="col-10 mx-auto col-lg-2">
-        <strong>item total :${total}</strong>
+        <strong>total :${parseFloat(productTotal).toFixed(2)}</strong>
       </div>
     </div>
   );
 };
 
-export default CartItem
+export default CartItem;

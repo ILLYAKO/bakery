@@ -12,13 +12,7 @@ const CartPage = () => {
   const history = useHistory();
   const { store } = useContext(Context);
   const { cart } = store;
-
-  console.log("-->CartPage-store-cart", cart.length);
-
-
-  if (cart?.lenght <= 0) {
-    return <EmptyCart />;
-  } else {
+  if (cart.length > 0) {
     return (
       <React.Fragment>
         <CartTitle name="your" title="cart" />
@@ -27,6 +21,8 @@ const CartPage = () => {
         <CartTotals value={store} history={history} />
       </React.Fragment>
     );
+  } else {
+    return <EmptyCart />;
   }
 };
 
