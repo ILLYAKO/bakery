@@ -1,4 +1,4 @@
-import { makeAutoObservable, toJS } from "mobx";
+import { makeAutoObservable} from "mobx";
 import axios from "axios";
 import AuthService from "../service/AuthService";
 import ProductService from "../service/ProductService";
@@ -14,11 +14,10 @@ export default class Store {
   cart = [];
   modalOpen = false;
   modalProduct = {};
-  cartSubTotal = 0.0;
+  cartSubTotal = 0.00;
   tax = 0.13;
-  cartTax = 0.0;
-  cartTotal = 0.0;
-  // quantityInCart;
+  cartTax = 0.00;
+  cartTotal = 0.00;
 
   constructor() {
     makeAutoObservable(this);
@@ -234,8 +233,6 @@ export default class Store {
     this.setCart(tempCart);
   };
   decrement = (id) => {
-    this.getItem(id);
-    console.log("Decrement", id);
     let tempCart = [...this.cart];
     const selectedProduct = tempCart.find((item) => item.dataValues.id === id);
     const index = tempCart.indexOf(selectedProduct);
@@ -258,7 +255,6 @@ export default class Store {
   };
 
  removeItem=(id)=> {
-    //  this.getItem(id);
     let tempCart = [...this.cart];
     tempCart =  tempCart.filter( (item) => {
       // eslint-disable-next-line
