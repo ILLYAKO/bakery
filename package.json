@@ -4,7 +4,7 @@
   "description": "Bakery",
   "scripts": {
     "start": "node server",
-    "build": "cd react-ui/ && npm install && npm run build"
+    "build": "cd client/ && npm install && npm run build"
   },
   "cacheDirectories": [
     "node_modules",
