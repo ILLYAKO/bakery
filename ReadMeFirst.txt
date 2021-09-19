@@ -54,3 +54,10 @@ npm i multer
 1:34:00
 1:44:25
 4:27:20
+
+// PayPal
+https://developer.paypal.com/docs/business/checkout/configure-payments/single-page-app/
+https://youtu.be/AtZGoueL4Vs
+
+// add in public/index.html
+  <script src="https://www.paypal.com/sdk/js?client-id=AYJvkDsO065ZyGmqftbpfClFKpFoxDXMSpTN90ETMjvL9Uss5dpgeL62m28skQNXJY2Fe-BRjkweX9BF&currency=CAD"></script>

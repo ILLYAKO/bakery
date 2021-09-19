@@ -1,7 +1,8 @@
-import { makeAutoObservable} from "mobx";
+import { makeAutoObservable } from "mobx";
 import axios from "axios";
 import AuthService from "../service/AuthService";
 import ProductService from "../service/ProductService";
+import OrderService from "../service/OrderService";
 import { API_URL } from "../http";
 // import { dummyProductsDb } from "./dummyDb";
 
@@ -14,10 +15,10 @@ export default class Store {
   cart = [];
   modalOpen = false;
   modalProduct = {};
-  cartSubTotal = 0.00;
+  cartSubTotal = 0.0;
   tax = 0.13;
-  cartTax = 0.00;
-  cartTotal = 0.00;
+  cartTax = 0.0;
+  cartTotal = 0.0;
 
   constructor() {
     makeAutoObservable(this);
@@ -254,24 +255,37 @@ export default class Store {
     }
   };
 
- removeItem=(id)=> {
+  removeItem = (id) => {
     let tempCart = [...this.cart];
-    tempCart =  tempCart.filter( (item) => {
+    tempCart = tempCart.filter((item) => {
       // eslint-disable-next-line
       if (item.dataValues.id == id) {
-         this.setCartSubTotal(
+        this.setCartSubTotal(
           parseFloat(this.cartSubTotal) - parseFloat(item.productTotal)
         );
-         this.setCartTax(this.cartSubTotal * 0.13);
-         this.setCartTotal(this.cartSubTotal * 1.13);
+        this.setCartTax(this.cartSubTotal * 0.13);
+        this.setCartTotal(this.cartSubTotal * 1.13);
         return false;
       }
       return true;
     });
-     this.setCart(tempCart);
-  }
+    this.setCart(tempCart);
+  };
 
   clearCart = () => {
     this.cart = [];
   };
+
+  async uploadOrder(order) {
+    try {
+      // eslint-disable-next-line
+      const response = await OrderService.uploadOrder(order, this.cart);
+      console.log("Order status: ", order.status);
+      console.log("Successfull order: ", order);
+    } catch (e) {
+      console.log("uploadOrder server error: ", e.response?.data?.message);
+    }
+  }
+
+  // customer
 }

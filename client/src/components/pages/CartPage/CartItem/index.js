@@ -28,9 +28,9 @@ const CartItem = ({ item }) => {
       </div>
 
       <div className="col-10 mx-auto col-lg-2 my-2 my-lg-0">
-        <div className="d-flex justify-contnet-center">
+        <div className="d-flex justify-content-center">
           <span
-            className="btn btn-black mx-1"
+            className="btn btn-outline-dark mx-1"
             onClick={() => {
               decrement(id);
             }}
@@ -39,7 +39,7 @@ const CartItem = ({ item }) => {
           </span>
           <span className="btn btn-black mx-1">{quantityInCart}</span>
           <span
-            className="btn btn-black mx-1"
+            className="btn btn-outline-dark mx-1"
             onClick={() => {
               increment(id);
             }}
@@ -50,7 +50,7 @@ const CartItem = ({ item }) => {
       </div>
       <div className="col-10 mx-auto col-lg-2">
         <span
-          className="btn btn-black mx-1"
+          className="btn btn-outline-dark"
           onClick={() => {
             removeItem(id);
           }}

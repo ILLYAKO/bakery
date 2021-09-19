@@ -45,25 +45,25 @@ const DetailsProductPage = () => {
           <p className="text-capitalize font-weight-bold mt-3 mb-0">
             {store?.detailProduct?.dataValues?.description}
           </p>
-
-          <Link to="/home">
-            <button>back to products</button>
-          </Link>
-          <button
-            // cart // Button Color is mainYellow
-            // disabled={inCart ? true : false}
-            disabled={false ? true : false}
-            onClick={(e) => {
-              e.preventDefault();
-              store.addToCart(id);
-              store.openModal(id);
-            }}
-          >
-            {/* {inCart ? "inCart" : "add to cart"} */}
-            {false ? "inCart" : "add to cart"}
-          </button>
-
-          <div></div>
+          <div className="pt-1">
+            <Link to="/home">
+              <button className="btn btn-secondary">Back to products</button>
+            </Link>
+            <button
+              className="btn btn-primary mx-1"
+              // cart // Button Color is mainYellow
+              // disabled={inCart ? true : false}
+              disabled={false ? true : false}
+              onClick={(e) => {
+                e.preventDefault();
+                store.addToCart(id);
+                store.openModal(id);
+              }}
+            >
+              {/* {inCart ? "inCart" : "add to cart"} */}
+              {false ? "inCart" : "Add to cart"}
+            </button>
+          </div>
         </div>
       </div>
     </div>

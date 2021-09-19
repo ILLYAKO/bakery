@@ -2,6 +2,7 @@ const sequelizeDb = require("./models");
 const User = require("./models/userModel");
 const Token = require("./models/tokenModel");
 const Product = require("./models/productModel");
+const Order = require("./models/orderModel");
 
 async function seed() {
   await sequelizeDb.sync({ forse: true });
@@ -28,6 +29,13 @@ async function seed() {
     segment: "cakes",
     description: "description2",
   });
+
+    const order001 = await Order.create({
+      order: "order",
+      cart: "cart"
+    });
+
+
 
   console.log(`seeded users and tokens`);
 }

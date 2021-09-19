@@ -10,13 +10,12 @@ const RegisterPage = () => {
   const { store } = useContext(Context);
   const history = useHistory();
 
-
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-   await store.registration(email, password);
-       if (store.isAuth) {
-         history.push("/");
-       }
+    await store.registration(email, password);
+    if (store.isAuth) {
+      history.push("/");
+    }
   };
 
   return (
@@ -55,16 +54,6 @@ const RegisterPage = () => {
             placeholder="Password"
           />
         </div>
-        {/* <div className="mb-3 form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-          />
-          <label className="form-check-label" htmlFor="exampleCheck1">
-            I accept the Terms of Use and Privacy Policy
-          </label>
-        </div> */}
         <button
           type="button"
           className="btn btn-primary"

@@ -13,6 +13,7 @@ import "./App.css";
 import Footer from "./components/particles/Footer";
 import Navbar from "./components/particles/Navbar";
 import LandingPage from "./components/pages/LandingPage";
+import ThankPage from "./components/pages/ThanksPage";
 import HomePage from "./components/pages/HomePage";
 import LoginPage from "./components/pages/UserPages/LoginPage";
 import RegisterPage from "./components/pages/UserPages/RegisterPage/";
@@ -47,6 +48,9 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <LandingPage></LandingPage>
+          </Route>
+          <Route exact path="/thankspage">
+            <ThankPage></ThankPage>
           </Route>
           <Route exact path="/home">
             <HomePage></HomePage>

@@ -32,20 +32,22 @@ const ModalProduct = () => {
               </h5>
               <Link to="/home">
                 <button
+                  className="btn btn-secondary"
                   onClick={() => {
                     store.closeModal();
                   }}
                 >
-                  store
+                  Store
                 </button>
               </Link>
               <Link to="/cart">
                 <button
+                  className="btn btn-primary mx-1"
                   onClick={() => {
                     store.closeModal();
                   }}
                 >
-                  go to cart
+                  Go to cart
                 </button>
               </Link>
             </div>
