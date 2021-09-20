@@ -7,7 +7,10 @@ const PayPalButton = ({ total, clearCart }) => {
   return (
     <>
       {checkout ? (
-        <PayPal total={total} clearCart={clearCart} />
+        <>
+          <h1 style={{ color: "red" }}>IT IS DEMO. DO NOT FINISH A PAYMENT</h1>
+          <PayPal total={total} clearCart={clearCart} />
+        </>
       ) : (
         <button
           className="btn btn-outline-success text-uppercase mb-3 px-5"

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const CarouselAlbum = () => {
   return (
@@ -18,9 +18,7 @@ const CarouselAlbum = () => {
             aria-label="Slide 1"
           >
             <img
-              src="
-              https://res.cloudinary.com/dxe2wwttx/image/upload/v1631588608/bakery/products/cakes/a545a63b-f5ac-4f4b-8fc5-b6c234768806.jpg
-              "
+              src="https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_204,w_420/v1631588587/bakery/products/cakes/a02e8d1b-2fbe-4183-8746-ebf92b09cddd.jpg"
               width="35px"
               height="20px"
               className="d-block"
@@ -34,7 +32,7 @@ const CarouselAlbum = () => {
             aria-label="Slide 2"
           >
             <img
-              src={require("../../../assets/images/cookies.png").default.toString()}
+              src="https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_204,w_420/v1631588556/bakery/products/cakes/078a6b99-b183-4028-9637-972a172ac3a4.jpg"
               width="35px"
               height="20px"
               className="d-block"
@@ -48,7 +46,7 @@ const CarouselAlbum = () => {
             aria-label="Slide 3"
           >
             <img
-              src={require("../../../assets/images/cookies.png").default.toString()}
+              src="https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_204,w_420/v1631588691/bakery/products/cakes/9ff79bb4-2fd4-46a8-8145-78e74a574ee6.jpg"
               width="35px"
               height="20px"
               className="d-block"
@@ -59,7 +57,7 @@ const CarouselAlbum = () => {
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img
-              src={require("../../../assets/images/cookies.png").default.toString()}
+              src="https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_204,w_420/v1631588587/bakery/products/cakes/a02e8d1b-2fbe-4183-8746-ebf92b09cddd.jpg"
               className="d-block w-100"
               alt="..."
             />
@@ -72,7 +70,7 @@ const CarouselAlbum = () => {
           </div>
           <div className="carousel-item">
             <img
-              src={require("../../../assets/images/cookies.png").default.toString()}
+              src="https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_204,w_420/v1631588556/bakery/products/cakes/078a6b99-b183-4028-9637-972a172ac3a4.jpg"
               className="d-block w-100"
               alt="..."
             />
@@ -85,7 +83,7 @@ const CarouselAlbum = () => {
           </div>
           <div className="carousel-item">
             <img
-              src={require("../../../assets/images/cookies.png").default.toString()}
+              src="https://res.cloudinary.com/dxe2wwttx/image/upload/c_fill,h_204,w_420/v1631588691/bakery/products/cakes/9ff79bb4-2fd4-46a8-8145-78e74a574ee6.jpg"
               className="d-block w-100"
               alt="..."
             />

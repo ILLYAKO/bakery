@@ -95,3 +95,7 @@ Inside the Deploy tab, scroll to Automatic Deploys and click the black button to
 
 Auto Deploy complete! Now check the build logs and make sure you don't have any errors
 /////////////////////////////////////////////////////
+
+Access to Gmail
+
+Allow cookies for all sites: res.cookie(  .... sameSite: "none", secure: true ...)

@@ -21,13 +21,14 @@ class UserService {
       password: hashPassword,
       activationLink,
     });
+    const userDto = new UserDto(user);
+    const tokens = tokenService.generateTokens({ ...userDto });
+    await tokenService.saveToken(userDto.id, tokens.refreshToken);
     await mailService.sendActivationMaiil(
       email,
       `${process.env.API_URL}/api/user/activate/${activationLink}`
     );
-    const userDto = new UserDto(user);
-    const tokens = tokenService.generateTokens({ ...userDto });
-    await tokenService.saveToken(userDto.id, tokens.refreshToken);
+
     return { ...tokens, user: userDto };
   }
 
