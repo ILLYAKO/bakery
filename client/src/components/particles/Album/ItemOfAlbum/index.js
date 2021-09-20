@@ -25,7 +25,7 @@ const ItemOfAlbum = ({img}) => {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">
-                  Modal title
+                  Bakery
                 </h5>
                 <button
                   type="button"
@@ -35,11 +35,10 @@ const ItemOfAlbum = ({img}) => {
                 ></button>
               </div>
               <div className="modal-body">
-                ...
                 <CarouselAlbum></CarouselAlbum>
               </div>
               <div className="modal-footer">
-                <button
+                {/* <button
                   type="button"
                   className="btn btn-secondary"
                   data-bs-dismiss="modal"
@@ -48,7 +47,7 @@ const ItemOfAlbum = ({img}) => {
                 </button>
                 <button type="button" className="btn btn-primary">
                   Save changes
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
