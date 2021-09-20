@@ -3,12 +3,8 @@
   "version": "1.0.0",
   "description": "Bakery",
   "scripts": {
-    "start": "cd server && npm start"
+    "start": "node server/index.js"
   },
-  "cacheDirectories": [
-    "node_modules",
-    "client/node_modules"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ILLYAKO/bakery.git"
