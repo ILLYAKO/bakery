@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Bakery",
   "scripts": {
-    "heroku-prebuild": "cd server && npm install && npm run build && cd .. && cd client && npm install",
-    "start": "cd client && npm start"
+    "start": "cd server && npm start"
   },
   "cacheDirectories": [
     "node_modules",
