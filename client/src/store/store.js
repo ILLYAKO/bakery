@@ -138,12 +138,26 @@ export default class Store {
       console.log("getAllProducts server error: ", e.response?.data?.message);
     }
   }
-  // ---------------
   async getItem(id) {
     try {
       const response = await ProductService.findOne(id);
-      await this.setDetailProduct(response.data);
+      if (response) {
+        await this.setDetailProduct(response.data);
+      } else {
+        let tempProduct = {};
+        await dummyProductsDb.map((item) =>
+          // eslint-disable-next-line
+          item.dataValues.id == id ? (tempProduct = item) : {}
+        );
+        await this.setDetailProduct(tempProduct);
+      }
     } catch (e) {
+      let tempProduct = {};
+      await dummyProductsDb.map((item) =>
+        // eslint-disable-next-line
+        item.dataValues.id == id ? (tempProduct = item) : {}
+      );
+      await this.setDetailProduct(tempProduct);
       console.log("getOneProduct server error: ", e.response?.data?.message);
     }
   }
