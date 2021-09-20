@@ -99,3 +99,24 @@ Auto Deploy complete! Now check the build logs and make sure you don't have any 
 Access to Gmail
 
 Allow cookies for all sites: res.cookie(  .... sameSite: "none", secure: true ...)
+
+//install GitHub Pages package as a dev-dependency in client
+cd client
+npm install gh-pages --save-dev
+//Add properties to package.json file.
+//"http://{username}.github.io/{repo-name}" {username} is your GitHub username, and {repo-name} is the name of the GitHub repository
+"homepage": "http://illyako.github.io/bakery"
+// Second in the existing scripts property we to need to add predeploy and deploy.
+"scripts": {
+//...
+"predeploy": "npm run build",
+"deploy": "gh-pages -d build"
+}
+
+//Now deploy it to GitHub Pages
+npm run deploy
+
+//Optionally, commit your source code to the "master" branch and push your commit to GitHub. (1 minute)
+git add .
+git commit -m "Create a React app and publish it to GitHub Pages"
+git push origin master
