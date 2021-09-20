@@ -1,4 +1,4 @@
-https://bakery-client.herokuapp.com/cart
+https://bakeryserver.herokuapp.com/
 
 // server
 index.js
@@ -53,9 +53,6 @@ npm i multer
 
 // src={require("../../../../assets/images/" + img).default.toString()}
 
-1:34:00
-1:44:25
-4:27:20
 
 // PayPal
 https://developer.paypal.com/docs/business/checkout/configure-payments/single-page-app/
