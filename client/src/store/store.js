@@ -155,7 +155,7 @@ export default class Store {
       let tempProduct = {};
       await dummyProductsDb.map((item) =>
         // eslint-disable-next-line
-        item.dataValues.id == id ? (tempProduct = item) : {}
+        item.dataValues.id == id ? (tempProduct = item) : (tempProduct = {})
       );
       await this.setDetailProduct(tempProduct);
       console.log("getOneProduct server error: ", e.response?.data?.message);

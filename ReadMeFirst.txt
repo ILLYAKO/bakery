@@ -61,3 +61,10 @@ https://youtu.be/AtZGoueL4Vs
 
 // add in public/index.html
   <script src="https://www.paypal.com/sdk/js?client-id=AYJvkDsO065ZyGmqftbpfClFKpFoxDXMSpTN90ETMjvL9Uss5dpgeL62m28skQNXJY2Fe-BRjkweX9BF&currency=CAD"></script>
+
+
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=admin
+DB_NAME=bakery_db
