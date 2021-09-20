@@ -4,7 +4,7 @@ import AuthService from "../service/AuthService";
 import ProductService from "../service/ProductService";
 import OrderService from "../service/OrderService";
 import { API_URL } from "../http";
-// import { dummyProductsDb } from "./dummyDb";
+import { dummyProductsDb } from "./dummyDb";
 
 export default class Store {
   user = {};
@@ -129,17 +129,35 @@ export default class Store {
   async getAllProducts() {
     try {
       const response = await ProductService.getAllProducts();
-      await this.setProducts(response.data);
+      if (response) {
+        await this.setProducts(response.data);
+      } else {
+        await this.setProducts(dummyProductsDb);
+      }
     } catch (e) {
       console.log("getAllProducts server error: ", e.response?.data?.message);
     }
   }
-  // ---------------
   async getItem(id) {
     try {
       const response = await ProductService.findOne(id);
-      await this.setDetailProduct(response.data);
+      if (response) {
+        await this.setDetailProduct(response.data);
+      } else {
+        let tempProduct = {};
+        await dummyProductsDb.map((item) =>
+          // eslint-disable-next-line
+          item.dataValues.id == id ? (tempProduct = item) : {}
+        );
+        await this.setDetailProduct(tempProduct);
+      }
     } catch (e) {
+      let tempProduct = {};
+      await dummyProductsDb.map((item) =>
+        // eslint-disable-next-line
+        item.dataValues.id == id ? (tempProduct = item) : (tempProduct = {})
+      );
+      await this.setDetailProduct(tempProduct);
       console.log("getOneProduct server error: ", e.response?.data?.message);
     }
   }
@@ -147,7 +165,7 @@ export default class Store {
   async handleDetail(id) {
     await this.getItem(id);
   }
-  // -----------
+
   async addToCart(id) {
     if (Array.isArray(this.cart) && !this.cart.length) {
       await this.getItem(id);
@@ -160,9 +178,7 @@ export default class Store {
       await this.setCartSubTotal(
         parseFloat(this.detailProduct.dataValues.productPrice)
       );
-      //
       await tempCart.push(tempProduct);
-
       await this.setCartTax(this.cartSubTotal * 0.13);
       await this.setCartTotal(this.cartSubTotal * 1.13);
       await this.setCart(tempCart);
@@ -170,7 +186,6 @@ export default class Store {
       await this.getItem(id);
       let tempCart = [...this.cart];
       let isNOTinCart = true;
-
       await tempCart.map((item) => {
         const tempId = item.dataValues.id;
         // eslint-disable-next-line
@@ -198,16 +213,14 @@ export default class Store {
           parseFloat(this.cartSubTotal) +
             parseFloat(this.detailProduct.dataValues.productPrice)
         );
-
         await tempCart.push(tempProduct);
       }
       await this.setCartTax(this.cartSubTotal * 0.13);
       await this.setCartTotal(this.cartSubTotal * 1.13);
-
       await this.setCart(tempCart);
     }
   }
-  // ------------------------------
+
   async openModal(id) {
     this.setModalOpen(true);
   }
@@ -286,6 +299,4 @@ export default class Store {
       console.log("uploadOrder server error: ", e.response?.data?.message);
     }
   }
-
-  // customer
 }
