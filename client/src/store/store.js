@@ -4,7 +4,7 @@ import AuthService from "../service/AuthService";
 import ProductService from "../service/ProductService";
 import OrderService from "../service/OrderService";
 import { API_URL } from "../http";
-// import { dummyProductsDb } from "./dummyDb";
+import { dummyProductsDb } from "./dummyDb";
 
 export default class Store {
   user = {};
@@ -129,7 +129,11 @@ export default class Store {
   async getAllProducts() {
     try {
       const response = await ProductService.getAllProducts();
-      await this.setProducts(response.data);
+      if (response) {
+        await this.setProducts(response.data);
+      } else {
+        await this.setProducts(dummyProductsDb);
+      }
     } catch (e) {
       console.log("getAllProducts server error: ", e.response?.data?.message);
     }
