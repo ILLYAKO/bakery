@@ -46,7 +46,7 @@ const App = () => {
   return (
     // <Router>
     // <Router history={history} basename={"/bakery"}>
-    <Router>
+    <Router basename={"/bakery"}>
       <div className="d-flex flex-column h-100">
         <header className="mb-5">
           <NavbarComponent />
