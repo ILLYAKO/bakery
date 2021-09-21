@@ -1,4 +1,5 @@
 https://bakeryserver.herokuapp.com/
+https://illyako.github.io/bakery/#/bakery/
 
 // server
 index.js
@@ -98,6 +99,13 @@ Auto Deploy complete! Now check the build logs and make sure you don't have any 
 /////////////////////////////////////////////////////
 
 Allow third-side app use Gmail account
+See nodemailer's official guide to connecting Gmail:
+https://community.nodemailer.com/using-gmail/
+It works for me after doing this:
+Enable less secure apps - https://www.google.com/settings/security/lesssecureapps
+Disable Captcha temporarily so you can connect the new device/server - https://accounts.google.com/b/0/displayunlockcaptcha
+Share
+
 
 Allow cookies for all sites: res.cookie(  .... sameSite: "none", secure: true ...)
 
