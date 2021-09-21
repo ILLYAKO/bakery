@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import { REACT_PUBLIC_URL } from "../../../../http";
 
 const Heading = ({ title, text, img, refUrl }) => {
   return (
@@ -15,6 +16,8 @@ const Heading = ({ title, text, img, refUrl }) => {
       <p>{text}</p>
       <p>
         <Link to={refUrl} className="btn btn-secondary">
+        {/* <Link to={REACT_PUBLIC_URL + refUrl} className="btn btn-secondary"> */}
+
           View details &raquo;
         </Link>
       </p>

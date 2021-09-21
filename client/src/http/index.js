@@ -1,6 +1,6 @@
 import axios from "axios";
 export const API_URL = process.env.REACT_APP_API_URL+"/api"
-
+export const REACT_PUBLIC_URL = process.env.REACT_APP_PUBLIC_URL;
 
 const $api = axios.create({
   withCredentials: true,

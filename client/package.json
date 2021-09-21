@@ -1,6 +1,6 @@
 {
-  "homepage": "http://illyako.github.io/bakery",
-  "name": "client",
+  "homepage": "http://illyako.github.io",
+  "name": "bakery",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,6 +13,7 @@
     "mobx": "^6.3.3",
     "mobx-react-lite": "^3.2.1",
     "react": "^17.0.2",
+    "react-bootstrap": "^2.0.0-beta.6",
     "react-dom": "^17.0.2",
     "react-paypal-express-checkout": "^1.0.5",
     "react-router-dom": "^5.2.0",

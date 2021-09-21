@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { REACT_PUBLIC_URL } from "../../../http";
 
 const LandingPage = () => {
   return (
@@ -21,7 +22,11 @@ const LandingPage = () => {
           our shop has the most delicious cakes and cookies
         </p>
         <p className="lead">
-          <Link to="/home" className="btn btn-lg fw-bold">
+          <Link
+            to={`${REACT_PUBLIC_URL}/home`}
+            // to="/home"
+            className="btn btn-lg fw-bold"
+          >
             Try me!
           </Link>
         </p>

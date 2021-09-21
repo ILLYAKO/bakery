@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import { REACT_PUBLIC_URL } from "../../../../http";
 
 const HeaderOfAlbum = ({ title, description }) => {
   return (
@@ -8,14 +9,20 @@ const HeaderOfAlbum = ({ title, description }) => {
         <div className="col-lg-6 col-md-8 mx-auto">
           <h1 className="fw-light">{title}</h1>
           <p className="lead text-muted">{description}</p>
-        
-            <Link to="/home" className="btn btn-primary mx-1">
-              Try our products
-            </Link>
-            <Link to="/about" className="btn btn-secondary mx-1">
-              About us
-            </Link>
-          
+          <Link to="/home" className="btn btn-primary mx-1">
+          {/* <Link
+            to={`${REACT_PUBLIC_URL}/home`}
+            className="btn btn-primary mx-1"
+          > */}
+            Try our products
+          </Link>
+          <Link to="/about" className="btn btn-secondary mx-1">
+          {/* <Link
+            to={`${REACT_PUBLIC_URL}/about`}
+            className="btn btn-secondary mx-1"
+          > */}
+            About us
+          </Link>
         </div>
       </div>
     </section>

@@ -1,13 +1,14 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
+// import { REACT_PUBLIC_URL } from "../../../../http";
 import "./style.css";
 
 const ItemOfGallery = ({ id, title, img, price }) => {
   // eslint-disable-next-line
   const [inCart, setInCart] = useState(false);
   const history = useHistory();
-  
+
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     history.push(`/product/details/${id}`);
@@ -18,6 +19,7 @@ const ItemOfGallery = ({ id, title, img, price }) => {
       <div className="card shadow-sm">
         <div className="img-container p-5" onClick={onSubmitHandler}>
           <Link to={`/product/details/${id}`}>
+            {/* <Link to={`${REACT_PUBLIC_URL}/product/details/${id}`}> */}
             <img
               className="bd-placeholder-img card-img-top w-100"
               src={img}
@@ -46,7 +48,8 @@ const ItemOfGallery = ({ id, title, img, price }) => {
       <div className="card-footer d-flex justify-content-between">
         <p className="align-self-center mb-0">{title}</p>
         <h5 className="text-blue font-italic mb-0">
-          <span className="mr-1">$</span>{price}
+          <span className="mr-1">$</span>
+          {price}
         </h5>
       </div>
     </div>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { Context } from "../../../..";
+// import { REACT_PUBLIC_URL } from "../../../../http";
 import "./style.css";
 
 const DetailsProductPage = () => {
@@ -47,6 +48,7 @@ const DetailsProductPage = () => {
           </p>
           <div className="pt-1">
             <Link to="/home">
+            {/* <Link to={`${REACT_PUBLIC_URL}/home`}> */}
               <button className="btn btn-secondary">Back to products</button>
             </Link>
             <button
