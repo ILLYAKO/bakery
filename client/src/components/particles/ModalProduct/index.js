@@ -2,13 +2,12 @@ import React, { useContext } from "react";
 import { observer } from "mobx-react-lite";
 import { Context } from "../../../index";
 import { Link } from "react-router-dom";
-// import { REACT_PUBLIC_URL } from "../../../http";
 import "./style.css";
 
 const ModalProduct = () => {
   const { store } = useContext(Context);
   const { modalOpen } = store;
-  
+
   if (!modalOpen) {
     return null;
   } else {
@@ -32,7 +31,6 @@ const ModalProduct = () => {
                 price: $ {store?.detailProduct?.dataValues?.productPrice}
               </h5>
               <Link to="/home">
-              {/* <Link to={`${REACT_PUBLIC_URL}/home`}> */}
                 <button
                   className="btn btn-secondary"
                   onClick={() => {
@@ -43,7 +41,6 @@ const ModalProduct = () => {
                 </button>
               </Link>
               <Link to="/cart">
-              {/* <Link to={`${REACT_PUBLIC_URL}/cart`}> */}
                 <button
                   className="btn btn-primary mx-1"
                   onClick={() => {

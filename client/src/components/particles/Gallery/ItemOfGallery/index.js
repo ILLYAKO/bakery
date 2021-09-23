@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
-// import { REACT_PUBLIC_URL } from "../../../../http";
 import "./style.css";
 
 const ItemOfGallery = ({ id, title, img, price }) => {
@@ -19,7 +18,6 @@ const ItemOfGallery = ({ id, title, img, price }) => {
       <div className="card shadow-sm">
         <div className="img-container p-5" onClick={onSubmitHandler}>
           <Link to={`/product/details/${id}`}>
-            {/* <Link to={`${REACT_PUBLIC_URL}/product/details/${id}`}> */}
             <img
               className="bd-placeholder-img card-img-top w-100"
               src={img}

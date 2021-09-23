@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../../../";
-// import { REACT_PUBLIC_URL } from "../../../../http";
 import PayPalButton from "../PayPalButton";
 
 const CartTotals = (history) => {
@@ -10,9 +9,7 @@ const CartTotals = (history) => {
   return (
     <React.Fragment>
       <div className="row">
-        {/* <div className="col-10 mt-2 ml-sm-5 ml-md-auto col-sm-8 text-capitalize "> */}
         <div className="col-11 text-end">
-          {/* <Link to={`${REACT_PUBLIC_URL}/`}> */}
           <Link to="/">
             <button
               className="btn btn-outline-danger text-uppercase mb-3 px-5"

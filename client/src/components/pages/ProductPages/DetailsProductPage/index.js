@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { Context } from "../../../..";
-// import { REACT_PUBLIC_URL } from "../../../../http";
 import "./style.css";
 
 const DetailsProductPage = () => {
@@ -48,13 +47,10 @@ const DetailsProductPage = () => {
           </p>
           <div className="pt-1">
             <Link to="/home">
-            {/* <Link to={`${REACT_PUBLIC_URL}/home`}> */}
               <button className="btn btn-secondary">Back to products</button>
             </Link>
             <button
               className="btn btn-primary mx-1"
-              // cart // Button Color is mainYellow
-              // disabled={inCart ? true : false}
               disabled={false ? true : false}
               onClick={(e) => {
                 e.preventDefault();
@@ -62,7 +58,6 @@ const DetailsProductPage = () => {
                 store.openModal(id);
               }}
             >
-              {/* {inCart ? "inCart" : "add to cart"} */}
               {false ? "inCart" : "Add to cart"}
             </button>
           </div>

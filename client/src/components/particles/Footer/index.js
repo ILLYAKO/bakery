@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { REACT_PUBLIC_URL } from "../../../http";
 
 const Footer = () => {
   return (
@@ -12,46 +11,26 @@ const Footer = () => {
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <Link to="/home" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/home`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   Home
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/product/baking" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/product/baking`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   Features
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/home" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/home`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   Pricing
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/home" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/home`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   FAQs
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/about" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/about`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   About
                 </Link>
               </li>
@@ -62,46 +41,26 @@ const Footer = () => {
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <Link to="/home" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/home`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   Home
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/product/baking" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/product/baking`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   Features
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/home" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/home`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   Pricing
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/home" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/home`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   FAQs
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/about" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/about`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   About
                 </Link>
               </li>
@@ -112,46 +71,26 @@ const Footer = () => {
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <Link to="/home" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/home`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   Home
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/product/baking" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/product/baking`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   Features
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/home" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/home`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   Pricing
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/home" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/home`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   FAQs
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/about" className="nav-link p-0 text-muted">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/about`}
-                  className="nav-link p-0 text-muted"
-                > */}
                   About
                 </Link>
               </li>
@@ -172,10 +111,6 @@ const Footer = () => {
                   placeholder="Email address"
                 />
                 <Link to="/about" className="btn btn-primary my-2">
-                {/* <Link
-                  to={`${REACT_PUBLIC_URL}/about`}
-                  className="btn btn-primary my-2"
-                > */}
                   Subscribe
                 </Link>
               </div>
@@ -187,7 +122,6 @@ const Footer = () => {
           <ul className="list-unstyled d-flex">
             <li className="ms-3">
               <Link to="/" className="link-dark">
-              {/* <Link to={`${REACT_PUBLIC_URL}/`} className="link-dark"> */}
                 <svg className="bi" width="24" height="24">
                   <use xlinkHref="#twitter" />
                 </svg>
@@ -195,7 +129,6 @@ const Footer = () => {
             </li>
             <li className="ms-3">
               <Link to="/" className="link-dark">
-              {/* <Link to={`${REACT_PUBLIC_URL}/`} className="link-dark"> */}
                 <svg className="bi" width="24" height="24">
                   <use xlinkHref="#instagram" />
                 </svg>
@@ -203,7 +136,6 @@ const Footer = () => {
             </li>
             <li className="ms-3">
               <Link to="/" className="link-dark" href="/">
-              {/* <Link to={`${REACT_PUBLIC_URL}/`} className="link-dark" href="/"> */}
                 <svg className="bi" width="24" height="24">
                   <use xlinkHref="#facebook" /> xlinkHref
                 </svg>
