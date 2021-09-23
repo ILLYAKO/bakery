@@ -112,7 +112,7 @@ Allow cookies for all sites: res.cookie(  .... sameSite: "none", secure: true ..
 // Deploying a create-react-app with routing to GitHub pages
 // Step 1. Add Routing to our application
 cd client
-npm install client
+npm install
 // Step 2. Then import HashRouter, Route, and Link from react-router-dom into our application. It is important to note we are using HashRouter here as without it on browser refresh, we would get a 404 on our GitHub pages live URL.
 // App.js
 import React, { Component } from 'react';

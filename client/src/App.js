@@ -1,13 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import { observer } from "mobx-react-lite";
 import {
-  // BrowserRouter as Router,
   HashRouter as Router,
   Switch,
   Route,
   Redirect,  
 } from "react-router-dom";
-// import { createBrowserHistory } from "history";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 
@@ -31,8 +29,6 @@ import { Context } from "./index";
 import ModalProduct from "./components/particles/ModalProduct";
 import DefaultPage from "./components/pages/DefaultPage";
 
-// const history = createBrowserHistory();
-
 const App = () => {
   const { store } = useContext(Context);
 
@@ -43,9 +39,7 @@ const App = () => {
     // eslint-disable-next-line
   }, []);
 
-  return (
-    // <Router>
-    // <Router history={history} basename={"/bakery"}>
+  return (   
     <Router basename={"/bakery"}>
       <div className="d-flex flex-column h-100">
         <header className="mb-5">
@@ -53,63 +47,47 @@ const App = () => {
         </header>
         <Switch>
           <Route exact path="/">
-            {/* <Route exact path={`${REACT_PUBLIC_URL}/`}> */}
             <LandingPage></LandingPage>
           </Route>
           <Route exact path="/thankspage">
-            {/* <Route exact path={`${REACT_PUBLIC_URL}/thankspage`}> */}
             <ThankPage></ThankPage>
           </Route>
           <Route exact path="/home">
-            {/* <Route exact path={`${REACT_PUBLIC_URL}/home`}> */}
             <HomePage></HomePage>
           </Route>
           <Route exact path="/about">
-            {/* <Route exact path={`${REACT_PUBLIC_URL}/about`}> */}
             <AboutPage></AboutPage>
           </Route>
           <Route exact path="/cart">
-            {/* <Route exact path={`${REACT_PUBLIC_URL}/cart`}> */}
             <CartPage></CartPage>
           </Route>
           <Route path="/user/login">
-            {/* <Route path={`${REACT_PUBLIC_URL}/user/login`}> */}
             <LoginPage></LoginPage>
           </Route>
           <Route path="/user/register">
-            {/* <Route path={`${REACT_PUBLIC_URL}/user/register`}> */}
             <RegisterPage></RegisterPage>
           </Route>
           <Route path="/user/dashborad">
-            {/* <Route path={`${REACT_PUBLIC_URL}/user/dashborad`}> */}
             <DashBoard></DashBoard>
           </Route>
           <Route path="/user/logout">
-            {/* <Route path={`${REACT_PUBLIC_URL}/user/logout`}> */}
-            {/* <Redirect to={`${REACT_PUBLIC_URL}/`} /> */}
             <Redirect to="/" />
           </Route>
           <Route path="/product/baking">
-            {/* <Route path={`${REACT_PUBLIC_URL}/product/baking`}> */}
             <BakingPage></BakingPage>
           </Route>
           <Route path="/product/cakes">
-            {/* <Route path={`${REACT_PUBLIC_URL}/product/cakes`}> */}
             <CakesPages></CakesPages>
           </Route>
           <Route path="/product/pies">
-            {/* <Route path={`${REACT_PUBLIC_URL}/product/pies`}> */}
             <PiesPages></PiesPages>
           </Route>
           <Route path="/product/cookies">
-            {/* <Route path={`${REACT_PUBLIC_URL}/product/cookies`}> */}
             <CookiesPage></CookiesPage>
           </Route>
           <Route path="/product/details/:id">
-            {/* <Route path={`${REACT_PUBLIC_URL}/product/details/:id`}> */}
             <DetailsProductPage></DetailsProductPage>
           </Route>
-          {/* <Route render={() => <h1>404: page not found</h1>}></Route> */}
           <Route render={() => <DefaultPage />}></Route>
         </Switch>
         <ModalProduct />
