@@ -1,39 +1,32 @@
 import React, { useContext } from "react";
 import { Switch, Route } from "react-router-dom";
-
+import { observer } from "mobx-react-lite";
 import { Context } from "../index";
 import DefaultPage from "../components/pages/DefaultPage";
 import { privateRouters, publicRouters } from ".";
 
 const AppRouter = () => {
   const { store } = useContext(Context);
+  const { isAuth } = store;
+  console.log(isAuth);
 
-  if (store.isAuth) {
-    return (
-      <Switch>
-        {privateRouters.map((route) => (
-          <Route
-            path={route.path}
-            exact={route.exact}
-            component={route.component}
-          />
-        ))}
-        {publicRouters.map((route) => (
-          <Route
-            path={route.path}
-            exact={route.exact}
-            component={route.component}
-          />
-        ))}
-        <Route render={() => <DefaultPage />}></Route>
-      </Switch>
-    );
-  }
-
-  return (
+  return isAuth ? (
+    <Switch>
+      {privateRouters.concat(publicRouters).map((route) => (
+        <Route
+          key={route.path}
+          path={route.path}
+          exact={route.exact}
+          component={route.component}
+        />
+      ))}
+      <Route render={() => <DefaultPage />}></Route>
+    </Switch>
+  ) : (
     <Switch>
       {publicRouters.map((route) => (
         <Route
+          key={route.path}
           path={route.path}
           exact={route.exact}
           component={route.component}
@@ -44,4 +37,4 @@ const AppRouter = () => {
   );
 };
 
-export default AppRouter;
+export default observer(AppRouter);

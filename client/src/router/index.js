@@ -13,14 +13,14 @@ import DashBoard from "../components/pages/DashBoard";
 import DetailsProductPage from "../components/pages/ProductPages/DetailsProductPage";
 
 export const privateRouters = [
-  { path: "/user/dashborad", component: DashBoard, exact: true },
+  { path: "/user/dashboard", component: DashBoard, exact: false },
+  { path: "/about", component: AboutPage, exact: true },
 ];
 
 export const publicRouters = [
   { path: "/", component: LandingPage, exact: true },
   { path: "/thankspage", component: ThankPage, exact: true },
   { path: "/home", component: HomePage, exact: true },
-  { path: "/about", component: AboutPage, exact: true },
   { path: "/cart", component: CartPage, exact: true },
   { path: "/user/login", component: LoginPage, exact: true },
   { path: "/user/register", component: RegisterPage, exact: true },

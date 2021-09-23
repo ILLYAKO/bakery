@@ -15,7 +15,7 @@ const NavbarComponent = () => {
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             {store.isAuth && store.user.role === "admin" && (
-              <Nav.Link href="#user/dashborad">Dashboard</Nav.Link>
+              <Nav.Link href="#user/dashboard">Dashboard</Nav.Link>
             )}
             <Nav.Link href="#product/baking">Baking</Nav.Link>
             <NavDropdown title="Products" id="basic-nav-dropdown">
