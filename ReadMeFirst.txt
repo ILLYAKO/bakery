@@ -125,7 +125,7 @@ npm install gh-pages --save-dev
 "homepage": "http://illyako.github.io/bakery"
 // Step 5. In the existing scripts property we to need to add predeploy and deploy.
 "scripts": {
-//...
+//....
 "predeploy": "npm run build",
 "deploy": "gh-pages -d build"
 }
