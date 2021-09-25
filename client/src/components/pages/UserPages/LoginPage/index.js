@@ -20,7 +20,7 @@ const LoginPage = () => {
 
   return (
     <div className="container form-signin">
-      <form>
+      <form noValidate validated="true">
         <div className="text-center">
           <img
             className="mb-4"
@@ -34,6 +34,7 @@ const LoginPage = () => {
         <h1 className="h3 mb-3 fw-normal">Please login</h1>
         <label htmlFor="floatingInput">Email address</label>
         <input
+          required="true"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
           type="email"
@@ -45,6 +46,7 @@ const LoginPage = () => {
 
         <label htmlFor="loginPassword">Password</label>
         <input
+          required="true"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           type="password"
