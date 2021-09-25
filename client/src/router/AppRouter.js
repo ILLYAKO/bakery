@@ -8,7 +8,6 @@ import { privateRouters, publicRouters } from ".";
 const AppRouter = () => {
   const { store } = useContext(Context);
   const { isAuth } = store;
-  console.log(isAuth);
 
   return isAuth ? (
     <Switch>
