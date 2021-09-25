@@ -48,7 +48,7 @@ const RegisterPage = () => {
             value={password}
           />
         </Form.Group>
-        <Form.Group className="mb-3 text-center">
+        <Form.Group className="text-center">
           <Button variant="primary" type="submit">
             Register Now
           </Button>
