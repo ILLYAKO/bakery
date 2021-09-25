@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { observer } from "mobx-react-lite";
 import { useHistory } from "react-router";
+import { Form, Button, Container, Image } from "react-bootstrap";
 import { Context } from "../../../..";
 import "./style.css";
 
@@ -19,56 +20,48 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container form-signin">
-      <form noValidate validated="true">
-        <div className="text-center">
-          <img
-            className="mb-4"
+    <Container className="form-signin">
+      <Form onSubmit={onSubmitHandler}>
+        <Form.Group className="mb-1 text-center">
+          <Image
             src={require("../../../../assets/images/bakery_logo.png").default.toString()}
             alt="bakery"
             width="100"
             height="100"
           />
-        </div>
-
+        </Form.Group>
         <h1 className="h3 mb-3 fw-normal">Please login</h1>
-        <label htmlFor="floatingInput">Email address</label>
-        <input
-          required="true"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          type="email"
-          className="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-          aria-describedby="emailHelp"
-        />
-
-        <label htmlFor="loginPassword">Password</label>
-        <input
-          required="true"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          type="password"
-          className="form-control"
-          id="loginPassword"
-          placeholder="Password"
-        />
-
-        <div className="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me" /> Remember me
-          </label>
-        </div>
-        <button
-          className="w-100 btn btn-lg btn-primary"
-          type="button"
-          onClick={onSubmitHandler}
-        >
-          Login
-        </button>
-      </form>
-    </div>
+        <Form.Group className="mb-3" controlId="formEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            required
+            name="email"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter email"
+            value={email}
+          />
+          {/* <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text> */}
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            required
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3 text-center">
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form.Group>
+      </Form>
+    </Container>
   );
 };
 
